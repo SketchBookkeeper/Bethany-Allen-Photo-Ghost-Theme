@@ -95,3 +95,7 @@ a:hover, a:focus, a:active {
   max-width: 1120px;
   padding: 0 20px;
   width: 100%; }
+
+.l-page-wrap {
+  padding: 50px;
+  width: 100%; }
