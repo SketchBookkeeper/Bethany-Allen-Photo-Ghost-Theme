@@ -18,9 +18,14 @@
     "posts_per_page": 10
   },
   "scripts": {
-    "watch": "parcel watch assets/js/index.js -d assets/built"
+    "watch": "parcel watch assets/js/index.js -d assets/built/"
   },
   "devDependencies": {
     "node-sass": "^4.7.2"
+  },
+  "dependencies": {
+	"animejs": "^2.2.0",
+	"barba.js": "^1.0.0",
+	"lozad": "^1.1.0"
   }
 }
