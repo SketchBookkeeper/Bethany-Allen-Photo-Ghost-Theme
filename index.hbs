@@ -1,23 +1,14 @@
 {{!< default}}
-{{!-- The tag above means: insert everything in this file
-into the {body} of the default.hbs template --}}
-
-{{> "site-header"}}
+{{!-- The tag above means: insert everything in this file into the {body} of the default.hbs template --}}
 
 {{!-- The main content area --}}
-<main id="site-main" class="site-main outer" role="main">
+<main id="site-main" class="l-page-wrap">
 	<div class="site-hero {{#if @blog.cover_image}}" style="background-image: url({{@blog.cover_image}}){{else}}no-cover{{/if}}"></div>
 
-    <div class="inner">
-
-        <div class="post-feed">
-            {{#foreach posts}}
-
-                {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
-                {{> "post-card"}}
-
-            {{/foreach}}
-        </div>
-
-    </div>
+	<div class="">
+		<div class="post-feed">
+			{{#foreach posts}} {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}} {{> "post-card"}}
+			{{/foreach}}
+		</div>
+	</div>
 </main>

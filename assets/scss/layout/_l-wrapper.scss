@@ -1,0 +1,10 @@
+//--------------------------------------------------------------
+// WRAPPERS
+//--------------------------------------------------------------
+.l-wrapper {
+	display: flow-root;
+	margin: 0 auto;
+	max-width: $global-width;
+	padding: 0 $global-padding;
+	width: 100%;
+}

@@ -88,3 +88,10 @@ a, a:visited {
 
 a:hover, a:focus, a:active {
   color: #C4AF9A; }
+
+.l-wrapper {
+  display: flow-root;
+  margin: 0 auto;
+  max-width: 1120px;
+  padding: 0 20px;
+  width: 100%; }
