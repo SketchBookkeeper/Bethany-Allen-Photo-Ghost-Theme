@@ -5,3 +5,16 @@ body {
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 300;
 }
+
+a {
+	&,
+	&:visited {
+		color: $color-theme-black;
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: $color-secondary;
+	}
+}
