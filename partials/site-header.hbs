@@ -1,9 +1,9 @@
-<header class="site-header">
-	<div class="site-header-content">
-		<h1 class="site-title">
-			{{#if @blog.logo}}
-			<img class="site-logo" src="{{@blog.logo}}" alt="{{@blog.title}}" /> {{else}} {{@blog.title}} {{/if}}
-		</h1>
+<header class="c-site-header">
+	<div class="c-site-header__content">
+		<h1 class="c-site-header__title">
+			{{@blog.title}}
+		</h1
+		>
 		<nav class="site-nav">
 			{{#if @blog.navigation}}
 				{{navigation}}
@@ -11,3 +11,7 @@
 		</nav>
 	</div>
 </header>
+
+<div class="c-site-frame__side c-site-frame__side--left"></div>
+<div class="c-site-frame__side c-site-frame__side--right"></div>
+<div class="c-site-frame__bottom"></div>
