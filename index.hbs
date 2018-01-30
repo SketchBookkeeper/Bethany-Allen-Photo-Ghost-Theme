@@ -7,8 +7,11 @@
 
 	<div class="">
 		<div class="post-feed">
-			{{#foreach posts}} {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}} {{> "post-card"}}
+			{{#foreach posts}} {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+				{{> "post-card"}}
 			{{/foreach}}
 		</div>
 	</div>
 </main>
+
+{{> "footer"}}

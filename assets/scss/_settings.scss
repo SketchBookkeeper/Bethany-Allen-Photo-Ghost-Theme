@@ -23,14 +23,17 @@ $mq-laptop-large: 1440px;
 //-----------------------------------------
 // Colors
 //-----------------------------------------
-$color-primary: #656176;
-$color-secondary: #C4AF9A;
-$color-off-white: #FCFBFC;
-$color-theme-black: #080705;
+$color-grey-dark: #4F4F4F;
+$color-grey-medium: #C4C4C4;
+$color-grey-light: #E5E5E5;
 
 
 //-----------------------------------------
 // Fonts
 //-----------------------------------------
-$font-heading: 'Libre Baskerville', serif;
+$font-heading: 'Playfair Display', serif;
 $font-body: 'Montserrat', sans-serif;
+
+// Weights
+$font-weight-light: 300; // Montserrat
+$font-weight-regular: 400; // Playfair Display
