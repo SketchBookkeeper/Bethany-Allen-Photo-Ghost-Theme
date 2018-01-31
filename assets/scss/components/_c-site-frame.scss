@@ -2,6 +2,12 @@
 // SITE FRAME
 //--------------------------------------------------------------
 .c-site-frame {
+	display: none;
+
+	@include mq($mq-full) {
+		display: block;
+	}
+
 	&__side,
 	&__bottom {
 		background-color: $color-theme-white;

@@ -1,17 +1,25 @@
 {{!< default}}
 {{!-- The tag above means: insert everything in this file into the {body} of the default.hbs template --}}
 
-{{!-- The main content area --}}
-<main id="site-main">
-	<div class="site-hero {{#if @blog.cover_image}}" style="background-image: url({{@blog.cover_image}}){{else}}no-cover{{/if}}"></div>
+<div class="c-site-cover">
+	{{#if @blog.cover_image}}
+		<img src="{{@blog.cover_image}}" alt="{{@blog.title}}" class="c-site-cover__image">
+	{{/if}}
 
-	<div class="">
-		<div class="post-feed">
-			{{#foreach posts}} {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
-				{{> "post-card"}}
-			{{/foreach}}
-		</div>
+	<div class="c-site-cover__content">
+		<h2 class="c-site-cover__title">Photography for all the important moments</h2>
+		<p class="c-site-cover__description">
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat expedita saepe, quo perspiciatis cum pariatur tenetur laboriosam
+			ex voluptatum maxime nam doloremque ab amet dolore eius quae earum alias. Repellat.
+		</p>
 	</div>
-</main>
+</div>
+
+<div class="l-collage">
+	{{#foreach posts}}
+		{{^has tag="blog"}} {{> "photo-card"}}
+		{{/has}}
+	{{/foreach}}
+</div>
 
 {{> "footer"}}

@@ -95,28 +95,31 @@ a:hover, a:focus, a:active {
   position: fixed;
   width: 100%; }
 
-.c-site-frame__side, .c-site-frame__bottom {
-  background-color: #FFFFFF;
-  position: fixed;
-  z-index: 100; }
-  @media (max-width: 960px) {
-    .c-site-frame__side, .c-site-frame__bottom {
-      display: none; } }
-
-.c-site-frame__side {
-  bottom: 50px;
-  height: calc(100% - 100px);
-  top: 50px;
-  width: 50px; }
-  .c-site-frame__side--left {
-    left: 0; }
-  .c-site-frame__side--right {
-    right: 0; }
-
-.c-site-frame__bottom {
-  bottom: 0;
-  height: 50px;
-  min-width: 100%; }
+.c-site-frame {
+  display: none; }
+  @media (min-width: 960px) {
+    .c-site-frame {
+      display: block; } }
+  .c-site-frame__side, .c-site-frame__bottom {
+    background-color: #FFFFFF;
+    position: fixed;
+    z-index: 100; }
+    @media (max-width: 960px) {
+      .c-site-frame__side, .c-site-frame__bottom {
+        display: none; } }
+  .c-site-frame__side {
+    bottom: 50px;
+    height: calc(100% - 100px);
+    top: 50px;
+    width: 50px; }
+    .c-site-frame__side--left {
+      left: 0; }
+    .c-site-frame__side--right {
+      right: 0; }
+  .c-site-frame__bottom {
+    bottom: 0;
+    height: 50px;
+    min-width: 100%; }
 
 .l-wrapper {
   display: flow-root;
@@ -126,5 +129,8 @@ a:hover, a:focus, a:active {
   width: 100%; }
 
 .l-page-wrap {
-  padding: 50px;
+  padding: 50px 20px;
   width: 100%; }
+  @media (min-width: 960px) {
+    .l-page-wrap {
+      padding: 50px; } }

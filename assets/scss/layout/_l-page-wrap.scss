@@ -2,6 +2,10 @@
 // PAGE WRAP
 //--------------------------------------------------------------
 .l-page-wrap {
-	padding: 50px;
+	padding: 50px 20px;
 	width: 100%;
+
+	@include mq($mq-full) {
+		padding: 50px;
+	};
 }

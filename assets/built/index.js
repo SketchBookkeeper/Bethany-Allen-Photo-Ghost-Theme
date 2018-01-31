@@ -69,7 +69,7 @@ require = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({5:[function(require,module,exports) {
+})({14:[function(require,module,exports) {
 var bundleURL = null;
 function getBundleURLCached() {
   if (!bundleURL) {
@@ -100,7 +100,7 @@ function getBaseURL(url) {
 exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
 
-},{}],4:[function(require,module,exports) {
+},{}],3:[function(require,module,exports) {
 var bundle = require('./bundle-url');
 
 function updateLink(link) {
@@ -132,25 +132,145 @@ function reloadCSS() {
 
 module.exports = reloadCSS;
 
-},{"./bundle-url":5}],3:[function(require,module,exports) {
+},{"./bundle-url":14}],15:[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"_css_loader":4}],2:[function(require,module,exports) {
+},{"_css_loader":3}],2:[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"_css_loader":4}],1:[function(require,module,exports) {
+},{"_css_loader":3}],16:[function(require,module,exports) {
+var global = (1,eval)("this");
+/*! lozad.js - v1.1.0 - 2018-01-18
+* https://github.com/ApoorvSaxena/lozad.js
+* Copyright (c) 2018 Apoorv Saxena; Licensed MIT */
+
+
+(function (global, factory) {
+	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+	typeof define === 'function' && define.amd ? define(factory) :
+	(global.lozad = factory());
+}(this, (function () { 'use strict';
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var defaultConfig = {
+  rootMargin: '0px',
+  threshold: 0,
+  load: function load(element) {
+    if (element.getAttribute('data-src')) {
+      element.src = element.getAttribute('data-src');
+    }
+    if (element.getAttribute('data-srcset')) {
+      element.srcset = element.getAttribute('data-srcset');
+    }
+    if (element.getAttribute('data-background-image')) {
+      element.style.backgroundImage = 'url(' + element.getAttribute('data-background-image') + ')';
+    }
+  }
+};
+
+function markAsLoaded(element) {
+  element.setAttribute('data-loaded', true);
+}
+
+var isLoaded = function isLoaded(element) {
+  return element.getAttribute('data-loaded') === 'true';
+};
+
+var onIntersection = function onIntersection(load) {
+  return function (entries, observer) {
+    entries.forEach(function (entry) {
+      if (entry.intersectionRatio > 0) {
+        observer.unobserve(entry.target);
+
+        if (!isLoaded(entry.target)) {
+          load(entry.target);
+          markAsLoaded(entry.target);
+        }
+      }
+    });
+  };
+};
+
+var getElements = function getElements(selector) {
+  if (selector instanceof Element) {
+    return [selector];
+  }
+  if (selector instanceof NodeList) {
+    return selector;
+  }
+  return document.querySelectorAll(selector);
+};
+
+var lozad = function () {
+  var selector = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '.lozad';
+  var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+  var _defaultConfig$option = _extends({}, defaultConfig, options),
+      rootMargin = _defaultConfig$option.rootMargin,
+      threshold = _defaultConfig$option.threshold,
+      load = _defaultConfig$option.load;
+
+  var observer = void 0;
+
+  if (window.IntersectionObserver) {
+    observer = new IntersectionObserver(onIntersection(load), {
+      rootMargin: rootMargin,
+      threshold: threshold
+    });
+  }
+
+  return {
+    observe: function observe() {
+      var elements = getElements(selector);
+
+      for (var i = 0; i < elements.length; i++) {
+        if (isLoaded(elements[i])) {
+          continue;
+        }
+        if (observer) {
+          observer.observe(elements[i]);
+          continue;
+        }
+        load(elements[i]);
+        markAsLoaded(elements[i]);
+      }
+    },
+    triggerLoad: function triggerLoad(element) {
+      if (isLoaded(element)) {
+        return;
+      }
+
+      load(element);
+      markAsLoaded(element);
+    }
+  };
+};
+
+return lozad;
+
+})));
+
+},{}],1:[function(require,module,exports) {
 "use strict";
 
 require("../scss/index.scss");
 
+// Styles
 require('minireset.css');
-},{"minireset.css":3,"../scss/index.scss":2}],0:[function(require,module,exports) {
+
+
+// Lazyload
+const lozad = require('lozad');
+const observer = lozad();
+observer.observe();
+},{"minireset.css":15,"../scss/index.scss":2,"lozad":16}],0:[function(require,module,exports) {
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
 function Module() {
@@ -168,7 +288,7 @@ function Module() {
 module.bundle.Module = Module;
 
 if (!module.bundle.parent && typeof WebSocket !== 'undefined') {
-  var ws = new WebSocket('ws://' + window.location.hostname + ':60289/');
+  var ws = new WebSocket('ws://' + window.location.hostname + ':49390/');
   ws.onmessage = function(event) {
     var data = JSON.parse(event.data);
 
