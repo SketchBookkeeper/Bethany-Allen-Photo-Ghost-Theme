@@ -1,0 +1,21 @@
+//--------------------------------------------------------------
+// SITE COVER
+//--------------------------------------------------------------
+.c-site-cover {
+	display: flex;
+	flex-direction: column;
+	height: calc(100vh - 100px);
+
+	&__image {
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		flex-grow: 1;
+	}
+
+	&__content {
+		@include mq($mq-full) {
+			display: flex;
+		}
+	}
+}

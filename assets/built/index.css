@@ -89,6 +89,17 @@ a, a:visited {
 a:hover, a:focus, a:active {
   color: #000000; }
 
+.h1, .wysiwyg-content h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 48px;
+  font-style: italic; }
+
+.h2, .wysiwyg-content h2 {
+  color: #C4C4C4;
+  font-family: "Playfair Display", serif;
+  font-size: 30px;
+  font-style: italic; }
+
 .c-site-header {
   background-color: #FFFFFF;
   min-height: 50px;
@@ -120,6 +131,19 @@ a:hover, a:focus, a:active {
     bottom: 0;
     height: 50px;
     min-width: 100%; }
+
+.c-site-cover {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 100px); }
+  .c-site-cover__image {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex-grow: 1; }
+  @media (min-width: 960px) {
+    .c-site-cover__content {
+      display: flex; } }
 
 .l-wrapper {
   display: flow-root;

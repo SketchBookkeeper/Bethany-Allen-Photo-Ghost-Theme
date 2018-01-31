@@ -1,0 +1,25 @@
+//--------------------------------------------------------------
+// HEADINGS
+//--------------------------------------------------------------
+.h1 {
+	font-family: $font-heading;
+	font-size: 48px;
+	font-style: italic;
+}
+
+.h2 {
+	color: $color-grey-medium;
+	font-family: $font-heading;
+	font-size: 30px;
+	font-style: italic;
+}
+
+.wysiwyg-content {
+	h1 {
+		@extend .h1;
+	}
+
+	h2 {
+		@extend .h2;
+	}
+}
