@@ -107,7 +107,8 @@ a:hover, a:focus, a:active {
   background-color: #FFFFFF;
   min-height: 50px;
   position: fixed;
-  width: 100%; }
+  width: 100%;
+  z-index: 10; }
 
 .c-site-frame {
   display: none; }
@@ -117,7 +118,7 @@ a:hover, a:focus, a:active {
   .c-site-frame__side, .c-site-frame__bottom {
     background-color: #FFFFFF;
     position: fixed;
-    z-index: 100; }
+    z-index: 10; }
     @media (max-width: 960px) {
       .c-site-frame__side, .c-site-frame__bottom {
         display: none; } }
@@ -157,6 +158,18 @@ a:hover, a:focus, a:active {
       grid-column: 5 / span 5;
       padding-left: 20px; } }
 
+.c-photo-card {
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+  position: relative; }
+  .c-photo-card__title {
+    position: absolute; }
+  .c-photo-card__image {
+    display: block;
+    object-fit: cover;
+    width: 100%; }
+
 .l-wrapper {
   display: flow-root;
   margin: 0 auto;
@@ -169,6 +182,27 @@ a:hover, a:focus, a:active {
   @media (min-width: 960px) {
     .l-page-wrap {
       padding: 50px; } }
+
+.l-collage {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: minmax(118px, 1fr) repeat(8, minmax(0px, 118px)) minmax(118px, 1fr); }
+  .l-collage__item:nth-child(5n + 1), .l-collage__item:nth-child(5n + 2) {
+    height: 100%;
+    max-height: 20vw;
+    min-height: 220px; }
+  .l-collage__item:nth-child(5n + 1) {
+    grid-column: 3 / span 3; }
+  .l-collage__item:nth-child(5n + 2) {
+    grid-column: 6 / span 4; }
+  .l-collage__item:nth-child(5n + 3) {
+    grid-column: 1 / span 6;
+    height: 100%;
+    max-height: 30vw;
+    min-height: 350px; }
+  .l-collage__item:nth-child(4), .l-collage__item:nth-child(5), .l-collage__item:nth-child(9) {
+    grid-column: 1 / span 10;
+    height: 75vh; }
 
 .l-columns {
   display: grid;

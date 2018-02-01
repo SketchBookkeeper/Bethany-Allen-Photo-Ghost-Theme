@@ -1,0 +1,19 @@
+//--------------------------------------------------------------
+// PHOTO CARD
+//--------------------------------------------------------------
+.c-photo-card {
+	display: flex;
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+
+	&__title {
+		position: absolute;
+	}
+
+	&__image {
+		display: block;
+		object-fit: cover;
+		width: 100%;
+	}
+}

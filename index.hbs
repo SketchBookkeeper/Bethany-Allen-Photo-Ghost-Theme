@@ -18,7 +18,10 @@
 
 <div class="l-collage">
 	{{#foreach posts}}
-		{{^has tag="blog"}} {{> "photo-card"}}
+		{{^has tag="blog"}}
+			<div class="l-collage__item">
+				{{> "photo-card"}}
+			</div>
 		{{/has}}
 	{{/foreach}}
 </div>
