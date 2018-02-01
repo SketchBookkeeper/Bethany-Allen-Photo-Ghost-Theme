@@ -69,7 +69,7 @@ require = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({14:[function(require,module,exports) {
+})({17:[function(require,module,exports) {
 var bundleURL = null;
 function getBundleURLCached() {
   if (!bundleURL) {
@@ -132,7 +132,7 @@ function reloadCSS() {
 
 module.exports = reloadCSS;
 
-},{"./bundle-url":14}],15:[function(require,module,exports) {
+},{"./bundle-url":17}],18:[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
@@ -144,7 +144,7 @@ module.exports = reloadCSS;
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"_css_loader":3}],16:[function(require,module,exports) {
+},{"_css_loader":3}],19:[function(require,module,exports) {
 var global = (1,eval)("this");
 /*! lozad.js - v1.1.0 - 2018-01-18
 * https://github.com/ApoorvSaxena/lozad.js
@@ -270,7 +270,7 @@ require('minireset.css');
 const lozad = require('lozad');
 const observer = lozad();
 observer.observe();
-},{"minireset.css":15,"../scss/index.scss":2,"lozad":16}],0:[function(require,module,exports) {
+},{"minireset.css":18,"../scss/index.scss":2,"lozad":19}],0:[function(require,module,exports) {
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
 function Module() {
@@ -288,7 +288,7 @@ function Module() {
 module.bundle.Module = Module;
 
 if (!module.bundle.parent && typeof WebSocket !== 'undefined') {
-  var ws = new WebSocket('ws://' + window.location.hostname + ':49390/');
+  var ws = new WebSocket('ws://' + window.location.hostname + ':49939/');
   ws.onmessage = function(event) {
     var data = JSON.parse(event.data);
 

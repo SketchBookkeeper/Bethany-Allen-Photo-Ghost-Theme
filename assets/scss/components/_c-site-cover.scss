@@ -14,8 +14,25 @@
 	}
 
 	&__content {
-		@include mq($mq-full) {
-			display: flex;
+		padding: 40px 0;
+	}
+
+	&__title,
+	&__description {
+		grid-column: 1 / span 10;
+	}
+
+	&__title {
+		@include mq($mq-medium) {
+			grid-column: 1 / span 4;
+		}
+	}
+
+	&__description {
+		@include mq($mq-medium) {
+			border-left: 1px solid $color-theme-black;
+			grid-column: 5 / span 5;
+			padding-left: 20px;
 		}
 	}
 }

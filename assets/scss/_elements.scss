@@ -6,6 +6,10 @@ body {
 	font-weight: 300;
 }
 
+p {
+	color: $color-grey-dark;
+}
+
 a {
 	&,
 	&:visited {

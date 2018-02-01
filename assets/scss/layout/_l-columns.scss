@@ -1,9 +1,8 @@
 //--------------------------------------------------------------
-// WRAPPERS
+// 10 COLUMN GRID
 //--------------------------------------------------------------
-.l-wrapper {
-	display: flow-root;
-	margin: 0 auto;
-	max-width: $global-width;
-	width: 100%;
+.l-columns {
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: repeat(10, 1fr);
 }
