@@ -1,0 +1,25 @@
+//--------------------------------------------------------------
+// HELPERS
+//--------------------------------------------------------------
+.h-cover {
+	bottom: 0;
+	height: 100%;
+	left: 0;
+	min-height: 100%;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.h-cover-background {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.h-screen-overlay {
+	@extend .h-cover;
+
+	display: none;
+	z-index: 9999;
+}

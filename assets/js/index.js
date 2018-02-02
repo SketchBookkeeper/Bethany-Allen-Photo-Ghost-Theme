@@ -7,4 +7,5 @@ const lozad = require('lozad');
 const observer = lozad();
 observer.observe();
 
-
+// Page Transitions
+import './barba';
