@@ -103,6 +103,22 @@ a:hover, a:focus, a:active {
   font-size: 30px;
   font-style: italic; }
 
+.lazyload,
+.lazyloading {
+  opacity: 0; }
+
+.lazyloaded {
+  animation: fade-in-up 300ms;
+  opacity: 1; }
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px); }
+  to {
+    opacity: 1;
+    transform: translateY(0); } }
+
 .c-site-header {
   background-color: #FFFFFF;
   min-height: 50px;
