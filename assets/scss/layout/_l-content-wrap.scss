@@ -1,8 +1,12 @@
 //--------------------------------------------------------------
-// WRAPPERS
+// CONTENT WRAP
+// Provide padding to offset site frame
 //--------------------------------------------------------------
-.l-wrapper {
-	margin: 0 auto;
-	max-width: $global-width;
+.l-content-wrap {
+	padding: 50px 20px;
 	width: 100%;
+
+	@include mq($mq-full) {
+		padding: 50px;
+	};
 }

@@ -1,40 +1,39 @@
 {{!< default}}
 
-{{!-- Everything inside the #post tags pulls data from the post --}}
-{{#post}}
+<div class="barba-container post_view" data-namespace="post_view">
+	{{!-- Everything inside the #post tags pulls data from the post --}}
+	{{#post}}
 
-<main id="site-main" class="site-main outer" role="main">
 	{{#if feature_image}}
-		<figure class="post-full-image" style="background-image: url({{feature_image}})">
-		</figure>
+		<div class="c-hero" style="background-image: url({{feature_image}})">
+			<h1 class="h1 c-hero__title js-fade-in-up">{{title}}</h1>
+		</div>
 	{{/if}}
 
-
-
-	<section class="post-full-content">
+	<section class="l-content-wrap c-post">
 		{{lazy_content}}
 	</section>
-</main>
 
-{{!-- Links to Previous/Next posts --}}
-<aside class="read-next outer">
-	<div class="inner">
-		{{!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs --}}
-		{{#next_post}}
-			{{> "post-card"}}
-		{{/next_post}}
+	{{!-- Links to Previous/Next posts --}}
+	<aside class="read-next outer">
+		<div class="inner">
+			{{!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs --}}
+			{{#next_post}}
+				{{> "photo-card"}}
+			{{/next_post}}
 
-		{{!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs --}}
-		{{#prev_post}}
-			{{> "post-card"}}
-		{{/prev_post}}
+			{{!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs --}}
+			{{#prev_post}}
+				{{> "photo-card"}}
+			{{/prev_post}}
 
-	</div>
-</aside>
+		</div>
+	</aside>
 
-{{/post}}
+	{{/post}}
 
-{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
-{{#contentFor "scripts"}}
+	{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
+	{{#contentFor "scripts"}}
 
-{{/contentFor}}
+	{{/contentFor}}
+</div>

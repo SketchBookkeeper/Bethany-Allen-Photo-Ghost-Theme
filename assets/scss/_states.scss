@@ -8,6 +8,6 @@
 }
 
 .lazyloaded {
-	animation: fade-in-up 300ms;
 	opacity: 1;
+	transition: opacity 200ms;
 }

@@ -69,7 +69,7 @@ require = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({22:[function(require,module,exports) {
+})({25:[function(require,module,exports) {
 var bundleURL = null;
 function getBundleURLCached() {
   if (!bundleURL) {
@@ -132,7 +132,7 @@ function reloadCSS() {
 
 module.exports = reloadCSS;
 
-},{"./bundle-url":22}],24:[function(require,module,exports) {
+},{"./bundle-url":25}],27:[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
@@ -144,7 +144,7 @@ module.exports = reloadCSS;
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"_css_loader":4}],28:[function(require,module,exports) {
+},{"_css_loader":4}],26:[function(require,module,exports) {
 (function(window, factory) {
 	var lazySizes = factory(window, window.document);
 	window.lazySizes = lazySizes;
@@ -843,7 +843,7 @@ module.exports = reloadCSS;
 }
 ));
 
-},{}],27:[function(require,module,exports) {
+},{}],31:[function(require,module,exports) {
 
 // shim for using process in browser
 var process = module.exports = {};
@@ -1030,7 +1030,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],26:[function(require,module,exports) {
+},{}],30:[function(require,module,exports) {
 var process = require("process");
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
@@ -2742,7 +2742,7 @@ return /******/ (function(modules) { // webpackBootstrap
 });
 ;
 //# sourceMappingURL=barba.js.map
-},{"process":27}],25:[function(require,module,exports) {
+},{"process":31}],29:[function(require,module,exports) {
 var global = (1,eval)("this");
 /*
  2017 Julian Garnier
@@ -2777,7 +2777,7 @@ n)k=l;else{var l=h,h=h+.1,g=0;do m=l+(h-l)/2,n=a(m,c,b)-k,0<n?h=m:l=m;while(1e-7
 d:A.apply($jscomp$this,d)}}(f)),f={type:f.type};return b}(),ha={css:function(a,c,d){return a.style[c]=d},attribute:function(a,c,d){return a.setAttribute(c,d)},object:function(a,c,d){return a[c]=d},transform:function(a,c,d,b,f){b[f]||(b[f]=[]);b[f].push(c+"("+d+")")}},v=[],B=0,ia=function(){function a(){B=requestAnimationFrame(c)}function c(c){var b=v.length;if(b){for(var d=0;d<b;)v[d]&&v[d].tick(c),d++;a()}else cancelAnimationFrame(B),B=0}return a}();q.version="2.2.0";q.speed=1;q.running=v;q.remove=
 function(a){a=P(a);for(var c=v.length;c--;)for(var d=v[c],b=d.animations,f=b.length;f--;)u(a,b[f].animatable.target)&&(b.splice(f,1),b.length||d.pause())};q.getValue=K;q.path=function(a,c){var d=h.str(a)?e(a)[0]:a,b=c||100;return function(a){return{el:d,property:a,totalLength:N(d)*(b/100)}}};q.setDashoffset=function(a){var c=N(a);a.setAttribute("stroke-dasharray",c);return c};q.bezier=A;q.easings=Q;q.timeline=function(a){var c=q(a);c.pause();c.duration=0;c.add=function(d){c.children.forEach(function(a){a.began=
 !0;a.completed=!0});m(d).forEach(function(b){var d=z(b,D(S,a||{}));d.targets=d.targets||a.targets;b=c.duration;var e=d.offset;d.autoplay=!1;d.direction=c.direction;d.offset=h.und(e)?b:L(e,b);c.began=!0;c.completed=!0;c.seek(d.offset);d=q(d);d.began=!0;d.completed=!0;d.duration>b&&(c.duration=d.duration);c.children.push(d)});c.seek(0);c.reset();c.autoplay&&c.restart();return c};return c};q.random=function(a,c){return Math.floor(Math.random()*(c-a+1))+a};return q});
-},{}],23:[function(require,module,exports) {
+},{}],32:[function(require,module,exports) {
 var global = (1,eval)("this");
 /*! lozad.js - v1.1.0 - 2018-01-18
 * https://github.com/ApoorvSaxena/lozad.js
@@ -2890,7 +2890,7 @@ return lozad;
 
 })));
 
-},{}],9:[function(require,module,exports) {
+},{}],28:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2933,7 +2933,7 @@ function fillScreen(el) {
     easing: 'easeInOutCirc'
   });
 }
-},{"animejs":25}],3:[function(require,module,exports) {
+},{"animejs":29}],3:[function(require,module,exports) {
 const Barba = require('barba.js');
 const anime = require('animejs');
 const lozad = require('lozad');
@@ -2947,7 +2947,80 @@ document.addEventListener("DOMContentLoaded", function () {
 		lastElementClicked = el;
 	});
 
+
+	//------------------------------
+	// Fade Transition
+	//------------------------------
 	const FadeTransition = Barba.BaseTransition.extend({
+		start: function () {
+			/**
+			 * This function is automatically called as soon the Transition starts
+			 * this.newContainerLoading is a Promise for the loading of the new container
+			 * (Barba.js also comes with an handy Promise polyfill!)
+			 */
+
+			// As soon the loading is finished and the old page is faded out, let's fade the new page
+			Promise
+				.all([this.newContainerLoading, this.fadeOut()])
+				.then(this.fadeIn.bind(this));
+		},
+
+		fadeOut: function () {
+			let deferred = Barba.Utils.deferred(); // Setup a promise, fadeIn will not run until promise is resolved
+
+			window.scroll({
+				top: 0,
+				left: 0,
+			});
+
+			deferred.resolve(); // Complete the Promise
+			return deferred.promise;
+		},
+
+		fadeIn: function () {
+			/**
+			 * this.newContainer is the HTMLElement of the new Container
+			 * At this stage newContainer is on the DOM (inside our #barba-container and with visibility: hidden)
+			 * Please note, newContainer is available just after newContainerLoading is resolved!
+			 */
+
+			let _this = this;
+			let $el = $(this.newContainer);
+
+			$el.css({
+				visibility: 'visible',
+			});
+
+			const newContainerAnimation = anime.timeline();
+
+			newContainerAnimation
+			.add({
+				targets: this.newContainer,
+				opacity: 0.7,
+				duration: 0,
+			})
+			.add({
+				targets: this.newContainer,
+				opacity: 1,
+				duration: 200,
+				easing: 'linear',
+				complete: () => {
+					/**
+					 * Do not forget to call .done() as soon your transition is finished!
+					 * .done() will automatically remove from the DOM the old Container
+					 */
+					$(this.oldContainer).hide();
+					_this.done(); // We are not animating old container, so remove it now
+				}
+			});
+		}
+	});
+
+
+	//------------------------------
+	// Zoom Transition
+	//------------------------------
+	const zoomTransition = Barba.BaseTransition.extend({
 		start: function () {
 			/**
 			 * This function is automatically called as soon the Transition starts
@@ -2973,15 +3046,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
 			function fillScreen(el) {
 				// get information about current position in relation to viewport
-				const rect = el.getBoundingClientRect();
-				const windowWidth = window.innerWidth;
-				const windowHeight = window.innerHeight;
+				let rect = el.getBoundingClientRect();
+				let windowWidth = window.innerWidth;
+				let windowHeight = window.innerHeight;
 
 				el.style.position = 'fixed';
 				el.style.zIndex = 2;
 
 				// animejs timeline
-				const fill = anime.timeline();
+				let fill = anime.timeline();
 
 				fill
 				  .add({
@@ -3002,45 +3075,27 @@ document.addEventListener("DOMContentLoaded", function () {
 					right: 0,
 					height: windowHeight,
 					width: windowWidth,
-					duration: 1700,
+					duration: 600,
 					elasticity: 0,
-					easing: 'easeInOutCirc',
+					easing: 'easeInSine',
 					complete: function (anim) {
 						noClickOverlay.hide(); // Remove the click barrier
 						deferred.resolve(); // Complete the Promise
+
+						// Scroll to top
+						window.scroll({
+							top: 0,
+							left: 0,
+						});
 					}
 				  });
 			  }
 
-			  const image = lastElementClicked.querySelector('.js-photo-zoom__image');
+			let image = lastElementClicked.querySelector('.js-photo-zoom__image');
 
 			fillScreen(image);
 
 			return deferred.promise;
-		},
-
-		fadeOut: function () {
-			let deferred = Barba.Utils.deferred(); // Setup a promise, fadeIn will not run until promise is resolved
-
-			const noClickOverlay = $('.js-no-click');
-			noClickOverlay.show(); // Prevent any clicks while animation is running by overlaying body with transparent div
-
-			const applyOverlay = anime({
-				targets: ['.page-transition-overlay'],
-				translateX: {
-					value: '100%',
-					duration: 400,
-					elasticity: 0,
-					easing: 'easeInQuad',
-				},
-				complete: function (anim) {
-					noClickOverlay.hide(); // Remove the click barrier
-					deferred.resolve(); // Complete the Promise
-				}
-			});
-
-			return deferred.promise;
-
 		},
 
 		fadeIn: function () {
@@ -3058,16 +3113,24 @@ document.addEventListener("DOMContentLoaded", function () {
 				visibility: 'visible',
 			});
 
-			/**
-			 * Do not forget to call .done() as soon your transition is finished!
-			 * .done() will automatically remove from the DOM the old Container
-			 */
-			$(this.oldContainer).hide();
-			_this.done(); // We are not animating old container, so remove it now
+			const newContainerAnimation = anime.timeline();
 
-			// Init lozad
-			const observer = lozad();
-			observer.observe();
+			newContainerAnimation
+			.add({
+				targets: this.newContainer,
+				opacity: 0.5,
+				duration: 0,
+			})
+			.add({
+				targets: this.newContainer,
+				opacity: 1,
+				duration: 500,
+				complete: () => {
+					$('.js-fade-in-up').addClass('fade-in-up');
+					$(this.oldContainer).hide();
+					_this.done();
+				}
+			});
 		}
 	});
 
@@ -3080,12 +3143,32 @@ document.addEventListener("DOMContentLoaded", function () {
 		 * Here you can use your own logic!
 		 * For example you can use different Transition based on the current page or link...
 		 */
+		if(lastElementClicked.classList.contains('js-photo-zoom')) {
+			return zoomTransition;
+		}
 
 		return FadeTransition;
 	};
+
+
+	//------------------------------
+	// Views
+	//------------------------------
+	//todo
+	const post_view = Barba.BaseView.extend({
+		namespace: 'post_view',
+		onLeave: function() {
+
+		},
+		onLeaveCompleted: function() {
+
+		}
+	});
+
+	post_view.init();
 });
 
-},{"barba.js":26,"animejs":25,"lozad":23,"./fill-screen":9}],1:[function(require,module,exports) {
+},{"barba.js":30,"animejs":29,"lozad":32,"./fill-screen":28}],1:[function(require,module,exports) {
 "use strict";
 
 require("../scss/index.scss");
@@ -3100,7 +3183,7 @@ require('minireset.css');
 require('lazysizes');
 
 // Page Transitions
-},{"minireset.css":24,"../scss/index.scss":2,"lazysizes":28,"./barba":3}],0:[function(require,module,exports) {
+},{"minireset.css":27,"../scss/index.scss":2,"lazysizes":26,"./barba":3}],0:[function(require,module,exports) {
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
 function Module() {
@@ -3118,7 +3201,7 @@ function Module() {
 module.bundle.Module = Module;
 
 if (!module.bundle.parent && typeof WebSocket !== 'undefined') {
-  var ws = new WebSocket('ws://' + window.location.hostname + ':58804/');
+  var ws = new WebSocket('ws://' + window.location.hostname + ':61535/');
   ws.onmessage = function(event) {
     var data = JSON.parse(event.data);
 

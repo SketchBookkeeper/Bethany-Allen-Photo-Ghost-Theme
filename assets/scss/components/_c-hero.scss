@@ -1,0 +1,22 @@
+//--------------------------------------------------------------
+// FULL SCREEN HERO IMAGE
+//--------------------------------------------------------------
+.c-hero {
+	background-position: center;
+	background-size: cover;
+	display: block;
+	min-height: 100vh;
+	position: relative;
+
+	&__title {
+		bottom: 100px;
+		color: $color-theme-white;
+		left: 50px;
+		position: absolute;
+		z-index: 1;
+
+		@include mq($mq-full) {
+			left: 150px;
+		}
+	}
+}

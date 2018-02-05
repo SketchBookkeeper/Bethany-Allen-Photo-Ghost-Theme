@@ -1,29 +1,31 @@
 {{!< default}}
 {{!-- The tag above means: insert everything in this file into the {body} of the default.hbs template --}}
 
-<div class="c-site-cover">
-	{{#if @blog.cover_image}}
-		<div class="c-site-cover__image" style="background-image: url( {{@blog.cover_image}} );"></div>
-	{{/if}}
+<div class="barba-container">
+	<div class="c-site-cover">
+		{{#if @blog.cover_image}}
+			<div class="c-site-cover__image" style="background-image: url( {{@blog.cover_image}} );"></div>
+		{{/if}}
 
-	<div class="l-wrapper l-columns c-site-cover__content">
-		<h2 class="h2 c-site-cover__title">Photography for all the important moments</h2>
+		<div class="l-wrapper l-content-wrap l-columns c-site-cover__content">
+			<h2 class="h2 c-site-cover__title">Photography for all the important moments</h2>
 
-		<p class="c-site-cover__description">
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat expedita saepe, quo perspiciatis cum pariatur tenetur laboriosam
-			ex voluptatum maxime nam doloremque ab amet dolore eius quae earum alias. Repellat.
-		</p>
+			<p class="c-site-cover__description">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat expedita saepe, quo perspiciatis cum pariatur tenetur laboriosam
+				ex voluptatum maxime nam doloremque ab amet dolore eius quae earum alias. Repellat.
+			</p>
+		</div>
 	</div>
-</div>
 
-<div class="l-collage">
-	{{#foreach posts}}
-		{{^has tag="blog"}}
-			<div class="l-collage__item">
-				{{> "photo-card"}}
-			</div>
-		{{/has}}
-	{{/foreach}}
-</div>
+	<div class="l-collage">
+		{{#foreach posts}}
+			{{^has tag="blog"}}
+				<div class="l-collage__item">
+					{{> "photo-card"}}
+				</div>
+			{{/has}}
+		{{/foreach}}
+	</div>
 
-{{> "footer"}}
+	{{> "footer"}}
+</div>
