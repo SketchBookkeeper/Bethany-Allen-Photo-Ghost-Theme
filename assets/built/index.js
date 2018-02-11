@@ -132,7 +132,7 @@ function reloadCSS() {
 
 module.exports = reloadCSS;
 
-},{"./bundle-url":25}],27:[function(require,module,exports) {
+},{"./bundle-url":25}],26:[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
@@ -144,7 +144,7 @@ module.exports = reloadCSS;
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"_css_loader":4}],26:[function(require,module,exports) {
+},{"_css_loader":4}],27:[function(require,module,exports) {
 (function(window, factory) {
 	var lazySizes = factory(window, window.document);
 	window.lazySizes = lazySizes;
@@ -843,7 +843,7 @@ module.exports = reloadCSS;
 }
 ));
 
-},{}],31:[function(require,module,exports) {
+},{}],30:[function(require,module,exports) {
 
 // shim for using process in browser
 var process = module.exports = {};
@@ -1030,7 +1030,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],30:[function(require,module,exports) {
+},{}],28:[function(require,module,exports) {
 var process = require("process");
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
@@ -2742,7 +2742,7 @@ return /******/ (function(modules) { // webpackBootstrap
 });
 ;
 //# sourceMappingURL=barba.js.map
-},{"process":31}],29:[function(require,module,exports) {
+},{"process":30}],29:[function(require,module,exports) {
 var global = (1,eval)("this");
 /*
  2017 Julian Garnier
@@ -2777,181 +2777,27 @@ n)k=l;else{var l=h,h=h+.1,g=0;do m=l+(h-l)/2,n=a(m,c,b)-k,0<n?h=m:l=m;while(1e-7
 d:A.apply($jscomp$this,d)}}(f)),f={type:f.type};return b}(),ha={css:function(a,c,d){return a.style[c]=d},attribute:function(a,c,d){return a.setAttribute(c,d)},object:function(a,c,d){return a[c]=d},transform:function(a,c,d,b,f){b[f]||(b[f]=[]);b[f].push(c+"("+d+")")}},v=[],B=0,ia=function(){function a(){B=requestAnimationFrame(c)}function c(c){var b=v.length;if(b){for(var d=0;d<b;)v[d]&&v[d].tick(c),d++;a()}else cancelAnimationFrame(B),B=0}return a}();q.version="2.2.0";q.speed=1;q.running=v;q.remove=
 function(a){a=P(a);for(var c=v.length;c--;)for(var d=v[c],b=d.animations,f=b.length;f--;)u(a,b[f].animatable.target)&&(b.splice(f,1),b.length||d.pause())};q.getValue=K;q.path=function(a,c){var d=h.str(a)?e(a)[0]:a,b=c||100;return function(a){return{el:d,property:a,totalLength:N(d)*(b/100)}}};q.setDashoffset=function(a){var c=N(a);a.setAttribute("stroke-dasharray",c);return c};q.bezier=A;q.easings=Q;q.timeline=function(a){var c=q(a);c.pause();c.duration=0;c.add=function(d){c.children.forEach(function(a){a.began=
 !0;a.completed=!0});m(d).forEach(function(b){var d=z(b,D(S,a||{}));d.targets=d.targets||a.targets;b=c.duration;var e=d.offset;d.autoplay=!1;d.direction=c.direction;d.offset=h.und(e)?b:L(e,b);c.began=!0;c.completed=!0;c.seek(d.offset);d=q(d);d.began=!0;d.completed=!0;d.duration>b&&(c.duration=d.duration);c.children.push(d)});c.seek(0);c.reset();c.autoplay&&c.restart();return c};return c};q.random=function(a,c){return Math.floor(Math.random()*(c-a+1))+a};return q});
-},{}],32:[function(require,module,exports) {
-var global = (1,eval)("this");
-/*! lozad.js - v1.1.0 - 2018-01-18
-* https://github.com/ApoorvSaxena/lozad.js
-* Copyright (c) 2018 Apoorv Saxena; Licensed MIT */
-
-
-(function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-	typeof define === 'function' && define.amd ? define(factory) :
-	(global.lozad = factory());
-}(this, (function () { 'use strict';
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var defaultConfig = {
-  rootMargin: '0px',
-  threshold: 0,
-  load: function load(element) {
-    if (element.getAttribute('data-src')) {
-      element.src = element.getAttribute('data-src');
-    }
-    if (element.getAttribute('data-srcset')) {
-      element.srcset = element.getAttribute('data-srcset');
-    }
-    if (element.getAttribute('data-background-image')) {
-      element.style.backgroundImage = 'url(' + element.getAttribute('data-background-image') + ')';
-    }
-  }
-};
-
-function markAsLoaded(element) {
-  element.setAttribute('data-loaded', true);
-}
-
-var isLoaded = function isLoaded(element) {
-  return element.getAttribute('data-loaded') === 'true';
-};
-
-var onIntersection = function onIntersection(load) {
-  return function (entries, observer) {
-    entries.forEach(function (entry) {
-      if (entry.intersectionRatio > 0) {
-        observer.unobserve(entry.target);
-
-        if (!isLoaded(entry.target)) {
-          load(entry.target);
-          markAsLoaded(entry.target);
-        }
-      }
-    });
-  };
-};
-
-var getElements = function getElements(selector) {
-  if (selector instanceof Element) {
-    return [selector];
-  }
-  if (selector instanceof NodeList) {
-    return selector;
-  }
-  return document.querySelectorAll(selector);
-};
-
-var lozad = function () {
-  var selector = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '.lozad';
-  var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-  var _defaultConfig$option = _extends({}, defaultConfig, options),
-      rootMargin = _defaultConfig$option.rootMargin,
-      threshold = _defaultConfig$option.threshold,
-      load = _defaultConfig$option.load;
-
-  var observer = void 0;
-
-  if (window.IntersectionObserver) {
-    observer = new IntersectionObserver(onIntersection(load), {
-      rootMargin: rootMargin,
-      threshold: threshold
-    });
-  }
-
-  return {
-    observe: function observe() {
-      var elements = getElements(selector);
-
-      for (var i = 0; i < elements.length; i++) {
-        if (isLoaded(elements[i])) {
-          continue;
-        }
-        if (observer) {
-          observer.observe(elements[i]);
-          continue;
-        }
-        load(elements[i]);
-        markAsLoaded(elements[i]);
-      }
-    },
-    triggerLoad: function triggerLoad(element) {
-      if (isLoaded(element)) {
-        return;
-      }
-
-      load(element);
-      markAsLoaded(element);
-    }
-  };
-};
-
-return lozad;
-
-})));
-
-},{}],28:[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.fillScreen = fillScreen;
-const anime = require('animejs');
-
-function fillScreen(el) {
-  // get information about current position in relation to viewport
-  const rect = el.getBoundingClientRect();
-  const windowWidth = window.innerWidth;
-  const windowHeight = window.innerHeight;
-
-  el.style.position = 'fixed';
-  el.style.zIndex = 2;
-
-  // animejs timeline
-  const fill = anime.timeline();
-
-  fill.add({
-    targets: el,
-    duration: 0,
-    top: rect.top,
-    left: rect.left,
-    bottom: rect.bottom,
-    right: rect.right,
-    height: rect.height,
-    width: rect.width
-  }).add({
-    targets: el,
-    top: 0,
-    left: 0,
-    bottom: 0,
-    right: 0,
-    height: windowHeight,
-    width: windowWidth,
-    duration: 700,
-    elasticity: 0,
-    easing: 'easeInOutCirc'
-  });
-}
-},{"animejs":29}],3:[function(require,module,exports) {
+},{}],3:[function(require,module,exports) {
 const Barba = require('barba.js');
 const anime = require('animejs');
-const lozad = require('lozad');
-require('./fill-screen');
 
 document.addEventListener("DOMContentLoaded", function () {
+	let lastElementClicked;
 	Barba.Pjax.init();
 
-	// can now reference lastElementClicked to scroll to where it's been clicked
+	// can now reference lastElementClicked
 	Barba.Dispatcher.on('linkClicked', function(el) {
 		lastElementClicked = el;
 	});
 
+	Barba.Dispatcher.on('initStateChange', function() {
+
+	});
 
 	//------------------------------
 	// Fade Transition
 	//------------------------------
-	const FadeTransition = Barba.BaseTransition.extend({
+	const slideTransition = Barba.BaseTransition.extend({
 		start: function () {
 			/**
 			 * This function is automatically called as soon the Transition starts
@@ -2961,57 +2807,62 @@ document.addEventListener("DOMContentLoaded", function () {
 
 			// As soon the loading is finished and the old page is faded out, let's fade the new page
 			Promise
-				.all([this.newContainerLoading, this.fadeOut()])
-				.then(this.fadeIn.bind(this));
+				.all([this.newContainerLoading, this.slideIn()])
+				.then(this.slideOut.bind(this));
 		},
 
-		fadeOut: function () {
+		slideIn: function () {
 			let deferred = Barba.Utils.deferred(); // Setup a promise, fadeIn will not run until promise is resolved
 
-			window.scroll({
-				top: 0,
-				left: 0,
+			const oldContainer = anime({
+				targets: '.js-transition-cover',
+				easing: 'linear',
+				translateX: '100%',
+				duration: 500,
+				complete: (anim) => {
+					deferred.resolve();
+				}
 			});
 
-			deferred.resolve(); // Complete the Promise
 			return deferred.promise;
 		},
 
-		fadeIn: function () {
+		slideOut: function () {
 			/**
 			 * this.newContainer is the HTMLElement of the new Container
 			 * At this stage newContainer is on the DOM (inside our #barba-container and with visibility: hidden)
 			 * Please note, newContainer is available just after newContainerLoading is resolved!
 			 */
 
-			let _this = this;
-			let $el = $(this.newContainer);
+			const _this = this;
+			const $el = $(this.newContainer);
+			const $oldContainer = $(this.oldContainer);
+			const transition = anime.timeline();
+
+			$oldContainer.hide();
+			_this.done();
 
 			$el.css({
 				visibility: 'visible',
 			});
 
-			const newContainerAnimation = anime.timeline();
+			window.scroll({
+				top: 0,
+				left: 0,
+			});
 
-			newContainerAnimation
-			.add({
-				targets: this.newContainer,
-				opacity: 0.7,
-				duration: 0,
+			transition
+			 .add({
+				targets: '.js-transition-cover',
+				duration: 500,
+				easing: 'linear',
+				translateX: '200%',
 			})
 			.add({
-				targets: this.newContainer,
-				opacity: 1,
-				duration: 200,
+				targets: '.js-transition-cover',
+				duration: 0,
+				translateX: 0,
 				easing: 'linear',
-				complete: () => {
-					/**
-					 * Do not forget to call .done() as soon your transition is finished!
-					 * .done() will automatically remove from the DOM the old Container
-					 */
-					$(this.oldContainer).hide();
-					_this.done(); // We are not animating old container, so remove it now
-				}
 			});
 		}
 	});
@@ -3057,7 +2908,7 @@ document.addEventListener("DOMContentLoaded", function () {
 				let fill = anime.timeline();
 
 				fill
-				  .add({
+				.add({
 					targets: el,
 					duration: 0,
 					top: rect.top,
@@ -3066,8 +2917,8 @@ document.addEventListener("DOMContentLoaded", function () {
 					right: rect.right,
 					height: rect.height,
 					width: rect.width,
-				  })
-				  .add({
+				})
+				.add({
 					targets: el,
 					top: 0,
 					left: 0,
@@ -3078,22 +2929,30 @@ document.addEventListener("DOMContentLoaded", function () {
 					duration: 600,
 					elasticity: 0,
 					easing: 'easeInSine',
-					complete: function (anim) {
+					complete: function(anim) {
 						noClickOverlay.hide(); // Remove the click barrier
 						deferred.resolve(); // Complete the Promise
 
-						// Scroll to top
 						window.scroll({
 							top: 0,
 							left: 0,
 						});
 					}
-				  });
-			  }
+				});
+			}
 
-			let image = lastElementClicked.querySelector('.js-photo-zoom__image');
-
-			fillScreen(image);
+			const image = lastElementClicked.querySelector('.js-photo-zoom__image');
+			const imageClone = image.cloneNode(false);
+			$(imageClone) .css({
+				position: 'absolute',
+				left: 0,
+				right: 0,
+				top: 0,
+				bottom: 0,
+				height: '100%',
+			});
+			lastElementClicked.appendChild(imageClone);
+			fillScreen(imageClone);
 
 			return deferred.promise;
 		},
@@ -3137,24 +2996,32 @@ document.addEventListener("DOMContentLoaded", function () {
 	/**
 	 * Next step, you have to tell Barba to use the new Transition
 	 */
-
 	Barba.Pjax.getTransition = function () {
 		/**
 		 * Here you can use your own logic!
 		 * For example you can use different Transition based on the current page or link...
 		 */
-		if(lastElementClicked.classList.contains('js-photo-zoom')) {
+
+		// If these do not match, back button was pressed
+		const currentURL = getUrlEnding(Barba.HistoryManager.currentStatus().url);
+		let lastElementClickedURL;
+
+		if (lastElementClicked) {
+			lastElementClickedURL = getUrlEnding(lastElementClicked.getAttribute('href'));
+		}
+
+		const URLsMatch = lastElementClickedURL === currentURL;
+
+		if (URLsMatch && lastElementClicked.classList.contains('js-photo-zoom')) {
 			return zoomTransition;
 		}
 
-		return FadeTransition;
+		return slideTransition;
 	};
-
 
 	//------------------------------
 	// Views
 	//------------------------------
-	//todo
 	const post_view = Barba.BaseView.extend({
 		namespace: 'post_view',
 		onLeave: function() {
@@ -3168,7 +3035,15 @@ document.addEventListener("DOMContentLoaded", function () {
 	post_view.init();
 });
 
-},{"barba.js":30,"animejs":29,"lozad":32,"./fill-screen":28}],1:[function(require,module,exports) {
+// Get URL ending
+function getUrlEnding(url) {
+	url = url.slice(0, -1); // remove '/' from end of url string
+	url = url.substr(url.lastIndexOf('/') + 1);
+
+	return url;
+}
+
+},{"barba.js":28,"animejs":29}],1:[function(require,module,exports) {
 "use strict";
 
 require("../scss/index.scss");
@@ -3183,7 +3058,7 @@ require('minireset.css');
 require('lazysizes');
 
 // Page Transitions
-},{"minireset.css":27,"../scss/index.scss":2,"lazysizes":26,"./barba":3}],0:[function(require,module,exports) {
+},{"minireset.css":26,"../scss/index.scss":2,"lazysizes":27,"./barba":3}],0:[function(require,module,exports) {
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
 function Module() {
@@ -3201,7 +3076,7 @@ function Module() {
 module.bundle.Module = Module;
 
 if (!module.bundle.parent && typeof WebSocket !== 'undefined') {
-  var ws = new WebSocket('ws://' + window.location.hostname + ':61535/');
+  var ws = new WebSocket('ws://' + window.location.hostname + ':54203/');
   ws.onmessage = function(event) {
     var data = JSON.parse(event.data);
 

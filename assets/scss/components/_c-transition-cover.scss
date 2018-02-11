@@ -1,0 +1,12 @@
+//--------------------------------------------------------------
+// TRANSITION COVER
+//--------------------------------------------------------------
+.c-transition-cover {
+	background-color: $color-theme-white;
+	height: 100%;
+	left: -100%;
+	pointer-events: none;
+	position: fixed;
+	top: 0;
+	width: 100vw;
+}

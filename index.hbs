@@ -1,7 +1,7 @@
 {{!< default}}
 {{!-- The tag above means: insert everything in this file into the {body} of the default.hbs template --}}
 
-<div class="barba-container">
+<div class="barba-container" data-namespace="home">
 	<div class="c-site-cover">
 		{{#if @blog.cover_image}}
 			<div class="c-site-cover__image" style="background-image: url( {{@blog.cover_image}} );"></div>
