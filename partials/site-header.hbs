@@ -3,11 +3,13 @@
 		<h1 class="c-site-header__title">
 			{{@blog.title}}
 		</h1>
-		<nav class="site-nav">
-			{{#if @blog.navigation}}
-				{{navigation}}
-			{{/if}}
-		</nav>
+
+		<button class="c-nav-toggle js-toggle-nav" aria-haspopup="true" aria-expanded="false">
+			<span class="h-visual-hide">Toggle Site Navigation</span>
+			<div class="c-nav-toggle__bar"></div>
+			<div class="c-nav-toggle__bar c-nav-toggle__bar--long"></div>
+			<div class="c-nav-toggle__bar"></div>
+		</button>
 	</div>
 </header>
 

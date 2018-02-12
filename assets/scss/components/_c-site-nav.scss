@@ -1,0 +1,21 @@
+//--------------------------------------------------------------
+// SITE NAV
+//--------------------------------------------------------------
+.c-site-nav {
+	background-color: $color-theme-white;
+	bottom: 0;
+	max-width: var(--nav-width);
+	min-height: 100%;
+	padding: 0 25px 0 50px;
+	position: fixed;
+	right: 0;
+	top: 50px;
+	transform: translate(var(--nav-width));
+	transition: var(--nav-transition);
+	width: 100%;
+	z-index: 20;
+
+	.nav-is-open & {
+		transform: translateX(0);
+	}
+}

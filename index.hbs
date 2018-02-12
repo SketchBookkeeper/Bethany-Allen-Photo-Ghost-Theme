@@ -19,11 +19,11 @@
 
 	<div class="l-collage">
 		{{#foreach posts}}
-			{{^has tag="blog"}}
+			{{#if featured}}
 				<div class="l-collage__item">
 					{{> "photo-card"}}
 				</div>
-			{{/has}}
+			{{/if}}
 		{{/foreach}}
 	</div>
 

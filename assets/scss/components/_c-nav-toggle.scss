@@ -1,0 +1,26 @@
+//--------------------------------------------------------------
+// NAV TOGGLE
+//--------------------------------------------------------------
+.c-nav-toggle {
+	align-items: flex-end;
+	display: flex;
+	flex-direction: column;
+	height: 16px;
+	justify-content: space-between;
+	width: 53px;
+
+	&:hover,
+	&:focus {
+		outline: 0;
+	}
+
+	&__bar {
+		background-color: $color-theme-black;
+		height: 1px;
+		width: 40px;
+
+		&--long {
+			width: 53px;
+		}
+	}
+}

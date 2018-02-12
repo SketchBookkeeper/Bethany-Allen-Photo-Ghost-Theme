@@ -7,4 +7,12 @@
 	position: fixed;
 	width: 100%;
 	z-index: 10;
+
+	&__content {
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+		min-height: 50px;
+		padding: 0 50px;
+	}
 }

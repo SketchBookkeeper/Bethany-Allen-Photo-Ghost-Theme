@@ -115,6 +115,19 @@ document.addEventListener("DOMContentLoaded", function () {
 			const noClickOverlay = $('.js-no-click');
 			noClickOverlay.show(); // Prevent any clicks while animation is running by overlaying body with transparent div
 
+			const image = lastElementClicked.querySelector('.js-photo-zoom__image');
+			const imageClone = image.cloneNode(false);
+			$(imageClone) .css({
+				position: 'absolute',
+				left: 0,
+				right: 0,
+				top: 0,
+				bottom: 0,
+				height: '100%',
+			});
+			lastElementClicked.appendChild(imageClone);
+			fillScreen(imageClone);
+
 			function fillScreen(el) {
 				// get information about current position in relation to viewport
 				let rect = el.getBoundingClientRect();
@@ -160,19 +173,6 @@ document.addEventListener("DOMContentLoaded", function () {
 					}
 				});
 			}
-
-			const image = lastElementClicked.querySelector('.js-photo-zoom__image');
-			const imageClone = image.cloneNode(false);
-			$(imageClone) .css({
-				position: 'absolute',
-				left: 0,
-				right: 0,
-				top: 0,
-				bottom: 0,
-				height: '100%',
-			});
-			lastElementClicked.appendChild(imageClone);
-			fillScreen(imageClone);
 
 			return deferred.promise;
 		},

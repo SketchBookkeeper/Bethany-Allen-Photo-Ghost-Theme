@@ -1,0 +1,18 @@
+//--------------------------------------------------------------
+// NAV OVERLAY
+//--------------------------------------------------------------
+.c-nav-overlay {
+	animation: opacity-in 0.25s;
+	background-color: transparentize($color-grey-dark, 0.75);
+	bottom: 0;
+	display: none;
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 5;
+
+	.nav-is-open & {
+		display: block;
+	}
+}

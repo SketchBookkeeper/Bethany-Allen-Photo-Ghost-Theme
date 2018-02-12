@@ -7,3 +7,6 @@ require('lazysizes');
 
 // Page Transitions
 import './barba';
+
+// Navigation
+import './nav';

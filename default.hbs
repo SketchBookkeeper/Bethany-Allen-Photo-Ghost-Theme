@@ -15,7 +15,14 @@
 </head>
 
 <body class="{{body_class}}">
-	<div class="site-wrapper">
+
+	<div class="site-wrap">
+		<nav class="c-site-nav js-nav" aria-hidden="true">
+		{{#if @blog.navigation}}
+		{{navigation}}
+		{{/if}}
+		</nav>
+
 		{{> "site-header"}}
 
 		<main class="l-page-wrap">
@@ -23,6 +30,8 @@
 				{{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
 				{{{body}}}
 			</div>
+
+			<div class="c-nav-overlay"></div>
 		</main>
 	</div>
 
