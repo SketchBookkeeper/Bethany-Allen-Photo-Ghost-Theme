@@ -3,14 +3,19 @@
 //--------------------------------------------------------------
 .c-nav-overlay {
 	animation: opacity-in 0.25s;
-	background-color: transparentize($color-grey-dark, 0.75);
+	background-color: transparentize($color-grey-dark, 0.5);
 	bottom: 0;
 	display: none;
 	left: 0;
 	position: fixed;
 	right: 0;
 	top: 0;
+	transition: background-color 700ms;
 	z-index: 5;
+
+	&:hover {
+		background-color: transparentize(lighten($color-grey-dark, 20%), 0.8);
+	}
 
 	.nav-is-open & {
 		display: block;

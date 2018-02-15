@@ -1,7 +1,6 @@
 const navTrigger = document.querySelector('.js-toggle-nav');
-const nav = document.querySelector('.js-nav');
+const overlay = document.querySelector('.js-nav-overlay');
 const body = document.querySelector('body');
 
-navTrigger.addEventListener('click', e => {
-	body.classList.toggle('nav-is-open');
-});
+navTrigger.addEventListener('click', e => body.classList.toggle('nav-is-open'));
+overlay.addEventListener('click', e => body.classList.toggle('nav-is-open'));

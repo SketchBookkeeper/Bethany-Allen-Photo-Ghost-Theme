@@ -19,3 +19,43 @@
 		transform: translateX(0);
 	}
 }
+
+.c-site-nav {
+	.nav {
+		li {
+			margin-bottom: 15px;
+			overflow: hidden;
+			position: relative;
+
+			&::before {
+				background-color: $color-plum;
+				bottom: 0;
+				content: '';
+				display: block;
+				left: 0;
+				min-height: 100%;
+				opacity: 0.7;
+				position: absolute;
+				top: 0;
+				transform: translateX(-101%);
+				transition: opacity 500ms 300ms linear, transform 400ms cubic-bezier(0.785, 0.135, 0.15, 0.86), width 300ms 400ms;
+				width: 100px;
+			}
+
+			&:hover {
+				&::before {
+					opacity: 0;
+					transform: translateX(100px);
+					width: 20px;
+				}
+			}
+		}
+
+		a {
+			display: block;
+			position: relative;
+			text-decoration: none;
+			z-index: 2;
+		}
+	}
+}
