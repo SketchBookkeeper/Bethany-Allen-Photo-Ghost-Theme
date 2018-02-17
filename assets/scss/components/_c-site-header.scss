@@ -8,11 +8,28 @@
 	width: 100%;
 	z-index: 10;
 
+	&__title {
+		font-size: 11px;
+		text-transform: uppercase;
+
+		@include mq($mq-medium) {
+			font-size: 18px;
+		}
+
+		a {
+			text-decoration: none;
+		}
+	}
+
 	&__content {
 		align-items: center;
 		display: flex;
 		justify-content: space-between;
 		min-height: 50px;
-		padding: 0 50px;
+		padding: 0 10px;
+
+		@include mq($mq-medium) {
+			padding: 0 50px;
+		}
 	}
 }
