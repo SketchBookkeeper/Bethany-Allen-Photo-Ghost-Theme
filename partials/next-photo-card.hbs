@@ -1,0 +1,10 @@
+{{#if feature_image}}
+<a href="{{url}}" class="c-photo-card c-photo-card--next js-photo-zoom {{post_class}}">
+	<h2 class="c-photo-card__title">
+		<span class="c-photo-card__sub-title">Next Post</span>
+		{{title}}
+	</h2>
+	<img src="{{asset "images/blank.png"}}" data-src="{{feature_image}}" class="lazyload c-photo-card__image js-photo-zoom__image" alt="{{title}}">
+	<div class="c-photo-card__overlay"></div>
+</a>
+{{/if}}
