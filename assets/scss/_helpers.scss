@@ -28,6 +28,18 @@
 	background-size: cover;
 }
 
+.h-overlay {
+	position: relative;
+
+	&::before {
+		@extend .h-cover;
+
+		background-color: transparentize($color-theme-black, 0.6);
+		content: '';
+		z-index: 2;
+	}
+}
+
 .h-screen-overlay {
 	@extend .h-cover;
 

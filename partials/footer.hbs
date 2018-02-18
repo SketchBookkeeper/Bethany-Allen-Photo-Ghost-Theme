@@ -1,15 +1,19 @@
 {{!-- The footer at the very bottom of the screen --}}
-<footer class="site-footer outer">
-	<div class="site-footer-content inner">
-		<section class="copyright">
-			<a href="{{@blog.url}}">{{@blog.title}}</a> &copy; {{date format="YYYY"}}</section>
-		<nav class="site-footer-nav">
+<footer class="l-content-wrap c-site-footer outer">
+	<div class="c-site-footer__content">
+		<div class="copyright">
+			<a href="{{@blog.url}}">{{@blog.title}}</a> &copy; {{date format="YYYY"}}
+		</div>
+
+		<nav class="c-site-footer__social-media">
+			<div class="h2">Let's Connect</div>
 			{{#if @blog.facebook}}
-				<a href="{{facebook_url @blog.facebook}}" target="_blank" rel="noopener">Facebook</a>
+				<a href="{{facebook_url @blog.facebook}}" target="_blank" rel="noopener"><span class="h-visual-hide">Facebook</span>{{> "icons/facebook"}}</a>
 			{{/if}}
 			{{#if @blog.twitter}}
-				<a href="{{twitter_url @blog.twitter}}" target="_blank" rel="noopener">Twitter</a>
+				<a href="{{twitter_url @blog.twitter}}" target="_blank" rel="noopener"><span class="h-visual-hide">Twitter</span>{{> "icons/twitter"}}</a>
 			{{/if}}
+				<a href="" target="_blank" rel="noopener"><span class="h-visual-hide">Intsagram</span>{{> "icons/instagram"}}</a>
 		</nav>
 	</div>
 </footer>

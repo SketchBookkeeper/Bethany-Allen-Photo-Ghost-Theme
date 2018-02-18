@@ -1,0 +1,16 @@
+//--------------------------------------------------------------
+// PAGE TITLE
+//--------------------------------------------------------------
+.c-page-title {
+	@extend .h1;
+
+	padding-top: 50px;
+	text-align: center;
+
+	&__meta {
+		display: block;
+		font-family: $font-body;
+		font-size: 20px;
+		font-style: normal;
+	}
+}

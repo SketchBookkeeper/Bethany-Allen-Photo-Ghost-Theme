@@ -97,7 +97,8 @@ button {
   border: 0;
   border-radius: 0; }
 
-.h1, .wysiwyg-content h1 {
+.h1, .c-page-title, .wysiwyg-content h1 {
+  color: #C4C4C4;
   font-family: "Playfair Display", serif;
   font-size: 48px;
   font-style: italic; }
@@ -194,6 +195,7 @@ button {
   overflow: hidden;
   position: relative; }
   .c-photo-card:hover .c-photo-card__title, .c-photo-card:focus .c-photo-card__title {
+    opacity: 1;
     transform: translateY(0); }
   .c-photo-card__title {
     bottom: 20px;
@@ -202,16 +204,47 @@ button {
     font-size: 24px;
     font-style: italic;
     left: 25px;
+    opacity: 0;
     position: absolute;
     transform: translateY(70px);
-    transition: transform 300ms ease-out; }
+    transition: transform 300ms ease-out, opacity 250ms;
+    z-index: 2; }
     @media (min-width: 960px) {
       .c-photo-card__title {
         font-size: 34px; } }
+  .c-photo-card__sub-title {
+    display: block;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300; }
   .c-photo-card__image {
     display: block;
     object-fit: cover;
     width: 100%; }
+
+.c-photo-card--next {
+  height: 400px; }
+  @media (min-width: 960px) {
+    .c-photo-card--next {
+      height: 550px;
+      margin-bottom: 50px; } }
+  .c-photo-card--next::before {
+    transition: opacity 600ms; }
+  .c-photo-card--next:hover::before, .c-photo-card--next:focus::before {
+    opacity: 0; }
+  .c-photo-card--next:hover .c-photo-card__title, .c-photo-card--next:focus .c-photo-card__title {
+    opacity: 0;
+    transform: translate(-50%, -50%); }
+  .c-photo-card--next .c-photo-card__title {
+    bottom: initial;
+    font-size: 36px;
+    left: 50%;
+    opacity: 1;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 500ms; }
 
 .c-site-cover {
   display: flex;
@@ -323,7 +356,8 @@ button {
   pointer-events: none;
   position: fixed;
   top: 0;
-  width: 100vw; }
+  width: 100vw;
+  z-index: 8000; }
 
 .c-nav-overlay {
   animation: opacity-in 0.25s;
@@ -340,6 +374,15 @@ button {
     background-color: rgba(130, 130, 130, 0.2); }
   .nav-is-open .c-nav-overlay {
     display: block; }
+
+.c-page-title {
+  padding-top: 50px;
+  text-align: center; }
+  .c-page-title__meta {
+    display: block;
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+    font-style: normal; }
 
 .l-collage {
   display: grid;
@@ -414,7 +457,7 @@ button {
   position: absolute;
   width: 1px; }
 
-.h-cover, .h-screen-overlay {
+.h-cover, .h-overlay::before, .c-photo-card--next::before, .h-screen-overlay {
   bottom: 0;
   height: 100%;
   left: 0;
@@ -427,6 +470,13 @@ button {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover; }
+
+.h-overlay, .c-photo-card--next {
+  position: relative; }
+  .h-overlay::before, .c-photo-card--next::before {
+    background-color: rgba(0, 0, 0, 0.4);
+    content: '';
+    z-index: 2; }
 
 .h-screen-overlay {
   display: none;

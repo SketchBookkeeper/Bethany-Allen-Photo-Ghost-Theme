@@ -17,23 +17,11 @@
 	{{!-- Links to Previous/Next posts --}}
 	<aside class="read-next outer">
 		<div class="inner">
-			{{!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs --}}
-			{{#next_post}}
-				{{> "photo-card"}}
-			{{/next_post}}
-
-			{{!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs --}}
 			{{#prev_post}}
-				{{> "photo-card"}}
+				{{> "next-photo-card"}}
 			{{/prev_post}}
-
 		</div>
 	</aside>
 
 	{{/post}}
-
-	{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
-	{{#contentFor "scripts"}}
-
-	{{/contentFor}}
 </div>
