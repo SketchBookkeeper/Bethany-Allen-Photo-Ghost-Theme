@@ -1,0 +1,23 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file into the {body} of the default.hbs template --}}
+
+<div class="barba-container">
+	{{#tag}}
+	<div class="l-content-wrap">
+		<h1 class="c-page-title">
+			{{name}}
+			<span class="c-page-title__meta">{{plural ../pagination.total empty='posts' singular='% post' plural='% posts'}}</span>
+		</h1>
+	</div>
+	{{/tag}}
+
+	<div class="l-collage">
+		{{#foreach posts}}
+			<div class="l-collage__item">
+				{{> "photo-card"}}
+			</div>
+		{{/foreach}}
+	</div>
+
+	{{> "footer"}}
+</div>
