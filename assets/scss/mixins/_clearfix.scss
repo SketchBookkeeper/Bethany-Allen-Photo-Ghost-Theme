@@ -1,12 +1,14 @@
 //--------------------------------------------------------------
-// WRAPPERS
+// CLEARFIX
 //--------------------------------------------------------------
-.l-wrapper {
-	margin: 0 auto;
-	max-width: $global-width;
-	width: 100%;
+@mixin clearfix {
+	&::before,
+	&::after {
+		content: '';
+		display: table;
+	}
 
-	&--medium {
-		max-width: 830px;
+	&::after {
+		clear: both;
 	}
 }

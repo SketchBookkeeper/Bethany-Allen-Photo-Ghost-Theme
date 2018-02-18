@@ -13,13 +13,3 @@
 	font-size: 30px;
 	font-style: italic;
 }
-
-.wysiwyg-content {
-	h1 {
-		@extend .h1;
-	}
-
-	h2 {
-		@extend .h2;
-	}
-}

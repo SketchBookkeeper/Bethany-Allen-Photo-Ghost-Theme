@@ -13,6 +13,7 @@
 @include mq($mq-full) {
 	.l-collage {
 		grid-template-columns: minmax(118px, 1fr) repeat(8, minmax(0px, 118px)) minmax(118px, 1fr);
+		padding: 0 50px 100px;
 
 		&__item {
 			&:nth-child(5n + 1),

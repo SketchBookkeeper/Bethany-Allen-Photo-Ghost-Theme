@@ -110,11 +110,13 @@ button {
 
 .lazyload,
 .lazyloading {
-  opacity: 0; }
+  opacity: 0;
+  transform: scale(0.9); }
 
 .lazyloaded {
   opacity: 1;
-  transition: opacity 200ms; }
+  transform: scale(1);
+  transition: opacity 200ms, transform 300ms; }
 
 .nav-is-open {
   overflow: hidden; }
@@ -191,8 +193,21 @@ button {
   height: 100%;
   overflow: hidden;
   position: relative; }
+  .c-photo-card:hover .c-photo-card__title, .c-photo-card:focus .c-photo-card__title {
+    transform: translateY(0); }
   .c-photo-card__title {
-    position: absolute; }
+    bottom: 20px;
+    color: #FFFFFF;
+    font-family: "Playfair Display", serif;
+    font-size: 24px;
+    font-style: italic;
+    left: 25px;
+    position: absolute;
+    transform: translateY(70px);
+    transition: transform 300ms ease-out; }
+    @media (min-width: 960px) {
+      .c-photo-card__title {
+        font-size: 34px; } }
   .c-photo-card__image {
     display: block;
     object-fit: cover;
@@ -334,7 +349,8 @@ button {
 
 @media (min-width: 960px) {
   .l-collage {
-    grid-template-columns: minmax(118px, 1fr) repeat(8, minmax(0px, 118px)) minmax(118px, 1fr); }
+    grid-template-columns: minmax(118px, 1fr) repeat(8, minmax(0px, 118px)) minmax(118px, 1fr);
+    padding: 0 50px 100px; }
     .l-collage__item:nth-child(5n + 1), .l-collage__item:nth-child(5n + 2) {
       height: 100%;
       max-height: 20vw;
@@ -373,6 +389,20 @@ button {
   margin: 0 auto;
   max-width: 1120px;
   width: 100%; }
+  .l-wrapper--medium {
+    max-width: 830px; }
+
+.wysiwyg-content p {
+  margin-bottom: 20px; }
+
+.wysiwyg-content h2 {
+  margin-bottom: 20px; }
+
+.wysiwyg-content img {
+  display: block;
+  margin: 0 auto;
+  max-height: calc(100vh - 100px);
+  width: auto; }
 
 .h-visual-hide {
   border: 0;

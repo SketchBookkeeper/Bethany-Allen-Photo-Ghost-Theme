@@ -69,7 +69,7 @@ require = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({31:[function(require,module,exports) {
+})({33:[function(require,module,exports) {
 var bundleURL = null;
 function getBundleURLCached() {
   if (!bundleURL) {
@@ -132,7 +132,7 @@ function reloadCSS() {
 
 module.exports = reloadCSS;
 
-},{"./bundle-url":31}],32:[function(require,module,exports) {
+},{"./bundle-url":33}],34:[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
@@ -144,7 +144,7 @@ module.exports = reloadCSS;
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"_css_loader":5}],33:[function(require,module,exports) {
+},{"_css_loader":5}],35:[function(require,module,exports) {
 (function(window, factory) {
 	var lazySizes = factory(window, window.document);
 	window.lazySizes = lazySizes;
@@ -843,7 +843,7 @@ module.exports = reloadCSS;
 }
 ));
 
-},{}],36:[function(require,module,exports) {
+},{}],38:[function(require,module,exports) {
 
 // shim for using process in browser
 var process = module.exports = {};
@@ -1030,7 +1030,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],35:[function(require,module,exports) {
+},{}],37:[function(require,module,exports) {
 var process = require("process");
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
@@ -2742,7 +2742,7 @@ return /******/ (function(modules) { // webpackBootstrap
 });
 ;
 //# sourceMappingURL=barba.js.map
-},{"process":36}],34:[function(require,module,exports) {
+},{"process":38}],36:[function(require,module,exports) {
 var global = (1,eval)("this");
 /*
  2017 Julian Garnier
@@ -2777,7 +2777,7 @@ n)k=l;else{var l=h,h=h+.1,g=0;do m=l+(h-l)/2,n=a(m,c,b)-k,0<n?h=m:l=m;while(1e-7
 d:A.apply($jscomp$this,d)}}(f)),f={type:f.type};return b}(),ha={css:function(a,c,d){return a.style[c]=d},attribute:function(a,c,d){return a.setAttribute(c,d)},object:function(a,c,d){return a[c]=d},transform:function(a,c,d,b,f){b[f]||(b[f]=[]);b[f].push(c+"("+d+")")}},v=[],B=0,ia=function(){function a(){B=requestAnimationFrame(c)}function c(c){var b=v.length;if(b){for(var d=0;d<b;)v[d]&&v[d].tick(c),d++;a()}else cancelAnimationFrame(B),B=0}return a}();q.version="2.2.0";q.speed=1;q.running=v;q.remove=
 function(a){a=P(a);for(var c=v.length;c--;)for(var d=v[c],b=d.animations,f=b.length;f--;)u(a,b[f].animatable.target)&&(b.splice(f,1),b.length||d.pause())};q.getValue=K;q.path=function(a,c){var d=h.str(a)?e(a)[0]:a,b=c||100;return function(a){return{el:d,property:a,totalLength:N(d)*(b/100)}}};q.setDashoffset=function(a){var c=N(a);a.setAttribute("stroke-dasharray",c);return c};q.bezier=A;q.easings=Q;q.timeline=function(a){var c=q(a);c.pause();c.duration=0;c.add=function(d){c.children.forEach(function(a){a.began=
 !0;a.completed=!0});m(d).forEach(function(b){var d=z(b,D(S,a||{}));d.targets=d.targets||a.targets;b=c.duration;var e=d.offset;d.autoplay=!1;d.direction=c.direction;d.offset=h.und(e)?b:L(e,b);c.began=!0;c.completed=!0;c.seek(d.offset);d=q(d);d.began=!0;d.completed=!0;d.duration>b&&(c.duration=d.duration);c.children.push(d)});c.seek(0);c.reset();c.autoplay&&c.restart();return c};return c};q.random=function(a,c){return Math.floor(Math.random()*(c-a+1))+a};return q});
-},{}],3:[function(require,module,exports) {
+},{}],4:[function(require,module,exports) {
 const Barba = require('barba.js');
 const anime = require('animejs');
 
@@ -3043,7 +3043,7 @@ function getUrlEnding(url) {
 	return url;
 }
 
-},{"barba.js":35,"animejs":34}],4:[function(require,module,exports) {
+},{"barba.js":37,"animejs":36}],3:[function(require,module,exports) {
 const navTrigger = document.querySelector('.js-toggle-nav');
 const overlay = document.querySelector('.js-nav-overlay');
 const body = document.querySelector('body');
@@ -3071,7 +3071,7 @@ require('lazysizes');
 
 
 // Navigation
-},{"minireset.css":32,"../scss/index.scss":2,"lazysizes":33,"./barba":3,"./nav":4}],0:[function(require,module,exports) {
+},{"minireset.css":34,"../scss/index.scss":2,"lazysizes":35,"./barba":4,"./nav":3}],0:[function(require,module,exports) {
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
 function Module() {
@@ -3089,7 +3089,7 @@ function Module() {
 module.bundle.Module = Module;
 
 if (!module.bundle.parent && typeof WebSocket !== 'undefined') {
-  var ws = new WebSocket('ws://' + window.location.hostname + ':52052/');
+  var ws = new WebSocket('ws://' + window.location.hostname + ':50660/');
   ws.onmessage = function(event) {
     var data = JSON.parse(event.data);
 

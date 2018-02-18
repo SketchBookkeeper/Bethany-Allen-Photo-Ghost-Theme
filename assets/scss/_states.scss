@@ -5,11 +5,13 @@
 .lazyload,
 .lazyloading {
 	opacity: 0;
+	transform: scale(0.9);
 }
 
 .lazyloaded {
 	opacity: 1;
-	transition: opacity 200ms;
+	transform: scale(1);
+	transition: opacity 200ms, transform 300ms;
 }
 
 // <body>

@@ -7,8 +7,27 @@
 	overflow: hidden;
 	position: relative;
 
+	&:hover,
+	&:focus {
+		.c-photo-card__title {
+			transform: translateY(0);
+		}
+	}
+
 	&__title {
+		bottom: 20px;
+		color: $color-theme-white;
+		font-family: $font-heading;
+		font-size: 24px;
+		font-style: italic;
+		left: 25px;
 		position: absolute;
+		transform: translateY(70px);
+		transition: transform 300ms ease-out;
+
+		@include mq($mq-full) {
+			font-size: 34px;
+		}
 	}
 
 	&__image {
