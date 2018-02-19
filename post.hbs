@@ -12,16 +12,29 @@
 
 	<section class="l-content-wrap l-wrapper l-wrapper--medium wysiwyg-content">
 		{{lazy_content}}
+
+		<div class="c-share">
+			<div id="shareBtn" class="c-share__facebook">Share</div>
+		</div>
 	</section>
 
-	{{!-- Links to Previous/Next posts --}}
-	<aside class="read-next outer">
-		<div class="inner">
-			{{#prev_post}}
-				{{> "next-photo-card"}}
-			{{/prev_post}}
-		</div>
+	<aside>
+		{{#prev_post}}
+			{{> "next-photo-card"}}
+		{{/prev_post}}
 	</aside>
 
 	{{/post}}
+
+	{{!-- Get Post URL --}}
+	<script>
+		document.getElementById('shareBtn').onclick = function() {
+		FB.ui({
+			method: 'share',
+			display: 'popup',
+			href: '{{url absolute="true"}}',
+		}, function(response){});
+		}
+	</script>
 </div>
+

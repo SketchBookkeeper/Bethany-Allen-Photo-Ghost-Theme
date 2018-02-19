@@ -4,8 +4,12 @@
 .h1 {
 	color: $color-grey-medium;
 	font-family: $font-heading;
-	font-size: 48px;
+	font-size: 30px;
 	font-style: italic;
+
+	@include mq($mq-medium) {
+		font-size: 48px;
+	}
 }
 
 .h2 {

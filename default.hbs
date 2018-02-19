@@ -51,6 +51,26 @@
 		</script>
 	{{/if}}
 
+		{{!-- Facebook SDK --}}
+	<script>
+		window.fbAsyncInit = function() {
+		FB.init({
+			appId            : '412045899233107',
+			autoLogAppEvents : true,
+			xfbml            : true,
+			version          : 'v2.12'
+		});
+		};
+
+		(function(d, s, id){
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) {return;}
+			js = d.createElement(s); js.id = id;
+			js.src = "https://connect.facebook.net/en_US/sdk.js";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	</script>
+
 	{{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}
 	{{ghost_foot}}
 

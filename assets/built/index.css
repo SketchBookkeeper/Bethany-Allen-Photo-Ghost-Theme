@@ -100,8 +100,11 @@ button {
 .h1, .c-page-title, .wysiwyg-content h1 {
   color: #C4C4C4;
   font-family: "Playfair Display", serif;
-  font-size: 48px;
+  font-size: 30px;
   font-style: italic; }
+  @media (min-width: 640px) {
+    .h1, .c-page-title, .wysiwyg-content h1 {
+      font-size: 48px; } }
 
 .h2, .wysiwyg-content h2 {
   color: #C4C4C4;
@@ -140,6 +143,7 @@ button {
     opacity: 1; } }
 
 .c-hero {
+  background-attachment: fixed;
   background-position: center;
   background-size: cover;
   display: block;
@@ -148,12 +152,28 @@ button {
   .c-hero__title {
     bottom: 100px;
     color: #FFFFFF;
-    left: 50px;
+    left: 25px;
     position: absolute;
     z-index: 1; }
     @media (min-width: 960px) {
       .c-hero__title {
         left: 150px; } }
+
+.c-nav-overlay {
+  animation: opacity-in 0.25s;
+  background-color: rgba(79, 79, 79, 0.5);
+  bottom: 0;
+  display: none;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transition: background-color 700ms;
+  z-index: 5; }
+  .c-nav-overlay:hover {
+    background-color: rgba(130, 130, 130, 0.2); }
+  .nav-is-open .c-nav-overlay {
+    display: block; }
 
 .c-nav-toggle {
   align-items: flex-end;
@@ -188,6 +208,15 @@ button {
 
 .nav-is-open .c-nav-toggle__bar:nth-child(3) {
   transform: translate(0, -6px) rotate(45deg); }
+
+.c-page-title {
+  padding-top: 50px;
+  text-align: center; }
+  .c-page-title__meta {
+    display: block;
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+    font-style: normal; }
 
 .c-photo-card {
   display: flex;
@@ -267,6 +296,23 @@ button {
       border-left: 1px solid #000000;
       grid-column: 5 / span 5;
       padding-left: 20px; } }
+
+.c-site-footer__content {
+  display: flex;
+  justify-content: space-between; }
+
+.c-site-footer__title {
+  font-size: 18px; }
+  .c-site-footer__title a {
+    text-decoration: none; }
+
+.c-site-footer__social-media a {
+  color: transparent; }
+
+.c-site-footer__social-media svg {
+  fill: #4F4F4F;
+  height: 35px;
+  width: auto; }
 
 .c-site-frame {
   display: none; }
@@ -358,31 +404,6 @@ button {
   top: 0;
   width: 100vw;
   z-index: 8000; }
-
-.c-nav-overlay {
-  animation: opacity-in 0.25s;
-  background-color: rgba(79, 79, 79, 0.5);
-  bottom: 0;
-  display: none;
-  left: 0;
-  position: fixed;
-  right: 0;
-  top: 0;
-  transition: background-color 700ms;
-  z-index: 5; }
-  .c-nav-overlay:hover {
-    background-color: rgba(130, 130, 130, 0.2); }
-  .nav-is-open .c-nav-overlay {
-    display: block; }
-
-.c-page-title {
-  padding-top: 50px;
-  text-align: center; }
-  .c-page-title__meta {
-    display: block;
-    font-family: "Montserrat", sans-serif;
-    font-size: 20px;
-    font-style: normal; }
 
 .l-collage {
   display: grid;
