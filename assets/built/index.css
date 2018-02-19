@@ -275,6 +275,22 @@ button {
     transform: translate(-50%, -50%);
     transition: opacity 500ms; }
 
+.c-share {
+  display: inline-block;
+  margin-bottom: 25px;
+  padding: 10px 0; }
+  .c-share__title {
+    color: #C4C4C4;
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-transform: uppercase; }
+  .c-share__action {
+    cursor: pointer; }
+    .c-share__action svg {
+      fill: #4F4F4F;
+      height: 25px;
+      width: auto; }
+
 .c-site-cover {
   display: flex;
   flex-direction: column;
@@ -502,6 +518,9 @@ button {
 .h-screen-overlay {
   display: none;
   z-index: 9999; }
+
+.h-fill-vertical, .l-collage {
+  min-height: 100vh; }
 
 :root {
   --nav-width: 300px;

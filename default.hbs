@@ -45,13 +45,7 @@
 
 	<script src="{{asset "built/index.js"}}"></script>
 
-	{{#if pagination.pages}}
-		<script>
-			const maxPages = parseInt('{{pagination.pages}}');
-		</script>
-	{{/if}}
-
-		{{!-- Facebook SDK --}}
+	{{!-- Facebook SDK --}}
 	<script>
 		window.fbAsyncInit = function() {
 		FB.init({

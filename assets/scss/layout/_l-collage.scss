@@ -2,6 +2,8 @@
 // COLLAGE LAYOUT
 //--------------------------------------------------------------
 .l-collage {
+	@extend .h-fill-vertical;
+
 	display: grid;
 	grid-gap: 20px;
 
