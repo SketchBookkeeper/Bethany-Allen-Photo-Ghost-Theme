@@ -2,4 +2,39 @@
 // SITE FOOTER
 //--------------------------------------------------------------
 .c-site-footer {
+	&__content {
+		display: flex;
+		justify-content: space-between;
+	}
+}
+
+
+//-----------------------------------------
+// Site Title
+//-----------------------------------------
+.c-site-footer {
+	&__title {
+		font-size: 18px;
+
+		a {
+			text-decoration: none;
+		}
+	}
+}
+
+//-----------------------------------------
+// Social Media
+//-----------------------------------------
+.c-site-footer {
+	&__social-media {
+		a {
+			color: transparent;
+		}
+
+		svg {
+			fill: $color-grey-dark;
+			height: 35px;
+			width: auto;
+		}
+	}
 }
