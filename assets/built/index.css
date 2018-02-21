@@ -149,6 +149,11 @@ button {
   display: block;
   min-height: 100vh;
   position: relative; }
+  .c-hero--half {
+    background-attachment: initial;
+    min-height: 50vh; }
+    .c-hero--half .c-hero__title {
+      bottom: 50px; }
   .c-hero__title {
     bottom: 100px;
     color: #FFFFFF;
@@ -217,6 +222,9 @@ button {
     font-family: "Montserrat", sans-serif;
     font-size: 20px;
     font-style: normal; }
+
+.c-pagination {
+  text-align: center; }
 
 .c-photo-card {
   display: flex;
@@ -520,7 +528,7 @@ button {
   z-index: 9999; }
 
 .h-fill-vertical, .l-collage {
-  min-height: 100vh; }
+  min-height: 80vh; }
 
 :root {
   --nav-width: 300px;

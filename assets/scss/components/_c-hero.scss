@@ -9,6 +9,15 @@
 	min-height: 100vh;
 	position: relative;
 
+	&--half {
+		background-attachment: initial;
+		min-height: 50vh;
+
+		.c-hero__title {
+			bottom: 50px;
+		}
+	}
+
 	&__title {
 		bottom: 100px;
 		color: $color-theme-white;
