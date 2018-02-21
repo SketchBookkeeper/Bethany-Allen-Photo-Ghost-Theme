@@ -2,5 +2,21 @@
 // PAGINATION
 //--------------------------------------------------------------
 .c-pagination {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 60px;
+	max-height: 20px;
 	text-align: center;
+	vertical-align: middle;
+
+	.page-number {
+		margin-top: 10px;
+	}
+
+	a {
+		font-size: 44px;
+		margin: 0 20px;
+		text-decoration: none;
+	}
 }

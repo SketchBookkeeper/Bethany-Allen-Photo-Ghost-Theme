@@ -13,7 +13,7 @@
 	transform: translate(var(--nav-width));
 	transition: var(--nav-transition);
 	width: 100%;
-	z-index: 20;
+	z-index: 200;
 
 	.nav-is-open & {
 		transform: translateX(0);
