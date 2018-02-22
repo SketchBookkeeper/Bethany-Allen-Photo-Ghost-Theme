@@ -1,0 +1,19 @@
+.c-loader {
+	border: 5px solid $color-grey-light;
+	bottom: 50px;
+	box-sizing: border-box;
+	display: none;
+	height: 40px;
+	min-width: 40px;
+	overflow: hidden;
+	position: fixed;
+	right: 50px;
+	z-index: 2000;
+
+	&__fill {
+		animation: fill 700ms infinite cubic-bezier(0.645, 0.045, 0.355, 1);
+		background-color: $color-grey-light;
+		height: 100%;
+		width: 100%;
+	}
+}

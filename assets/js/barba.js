@@ -34,6 +34,8 @@ document.addEventListener("DOMContentLoaded", function () {
 		slideIn: function () {
 			let deferred = Barba.Utils.deferred(); // Setup a promise, fadeIn will not run until promise is resolved
 
+			$('.js-loader').show();
+
 			const oldContainer = anime({
 				targets: '.js-transition-cover',
 				easing: 'linear',
@@ -83,7 +85,12 @@ document.addEventListener("DOMContentLoaded", function () {
 				duration: 0,
 				translateX: 0,
 				easing: 'linear',
+				complete: function(anim) {
+					$('.js-loader').hide();
+				}
 			});
+
+
 		}
 	});
 

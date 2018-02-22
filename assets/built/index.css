@@ -142,6 +142,20 @@ button {
   to {
     opacity: 1; } }
 
+@keyframes pulse {
+  from {
+    opacity: 1;
+    transform: scale(0); }
+  to {
+    opacity: 0;
+    transform: scale(1); } }
+
+@keyframes fill {
+  0% {
+    transform: translateY(100%); }
+  100% {
+    transform: translateY(-100%); } }
+
 .c-hero {
   background-attachment: fixed;
   background-position: center;
@@ -440,6 +454,23 @@ button {
   top: 0;
   width: 100vw;
   z-index: 100; }
+
+.c-loader {
+  border: 5px solid #E5E5E5;
+  bottom: 50px;
+  box-sizing: border-box;
+  display: none;
+  height: 40px;
+  min-width: 40px;
+  overflow: hidden;
+  position: fixed;
+  right: 50px;
+  z-index: 2000; }
+  .c-loader__fill {
+    animation: fill 700ms infinite cubic-bezier(0.645, 0.045, 0.355, 1);
+    background-color: #E5E5E5;
+    height: 100%;
+    width: 100%; }
 
 .l-collage {
   display: grid;

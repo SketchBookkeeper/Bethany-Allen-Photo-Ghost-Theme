@@ -18,13 +18,13 @@
 	</div>
 
 	<div class="l-collage">
-		{{#foreach posts}}
-			{{#if featured}}
+		{{#get "posts" filter="featured:true" limit="9" as |featured|}}
+			{{#foreach featured}}
 				<div class="l-collage__item">
 					{{> "photo-card"}}
 				</div>
-			{{/if}}
-		{{/foreach}}
+			{{/foreach}}
+		{{/get}}
 	</div>
 
 	{{> "footer"}}

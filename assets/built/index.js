@@ -132,7 +132,7 @@ function reloadCSS() {
 
 module.exports = reloadCSS;
 
-},{"./bundle-url":37}],38:[function(require,module,exports) {
+},{"./bundle-url":37}],39:[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
@@ -144,7 +144,7 @@ module.exports = reloadCSS;
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"_css_loader":5}],39:[function(require,module,exports) {
+},{"_css_loader":5}],38:[function(require,module,exports) {
 (function(window, factory) {
 	var lazySizes = factory(window, window.document);
 	window.lazySizes = lazySizes;
@@ -2814,6 +2814,8 @@ document.addEventListener("DOMContentLoaded", function () {
 		slideIn: function () {
 			let deferred = Barba.Utils.deferred(); // Setup a promise, fadeIn will not run until promise is resolved
 
+			$('.js-loader').show();
+
 			const oldContainer = anime({
 				targets: '.js-transition-cover',
 				easing: 'linear',
@@ -2863,7 +2865,12 @@ document.addEventListener("DOMContentLoaded", function () {
 				duration: 0,
 				translateX: 0,
 				easing: 'linear',
+				complete: function(anim) {
+					$('.js-loader').hide();
+				}
 			});
+
+
 		}
 	});
 
@@ -3071,7 +3078,7 @@ require('lazysizes');
 
 
 // Navigation
-},{"minireset.css":38,"../scss/index.scss":2,"lazysizes":39,"./barba":3,"./nav":4}],0:[function(require,module,exports) {
+},{"minireset.css":39,"../scss/index.scss":2,"lazysizes":38,"./barba":3,"./nav":4}],0:[function(require,module,exports) {
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
 function Module() {
@@ -3089,7 +3096,7 @@ function Module() {
 module.bundle.Module = Module;
 
 if (!module.bundle.parent && typeof WebSocket !== 'undefined') {
-  var ws = new WebSocket('ws://' + window.location.hostname + ':50749/');
+  var ws = new WebSocket('ws://' + window.location.hostname + ':51189/');
   ws.onmessage = function(event) {
     var data = JSON.parse(event.data);
 
