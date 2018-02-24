@@ -1,7 +1,14 @@
 {{#if feature_image}}
 <a href="{{url}}" class="c-photo-card js-photo-zoom {{post_class}}">
-	<h2 class="c-photo-card__title">{{title}}</h2>
-	<img src="{{asset "images/blank.png"}}" data-src="{{feature_image}}" class="lazyload c-photo-card__image js-photo-zoom__image" alt="{{title}}">
-	<div class="c-photo-card__overlay"></div>
+	<div class="c-photo-card__inner">
+		<h2 class="c-photo-card__title">{{title}}</h2>
+		<img
+			src="{{asset "images/blank.png"}}"
+			data-src="{{feature_image}}"
+			alt="{{title}}"
+			class="lazyload c-photo-card__image js-photo-zoom__image"
+		>
+		<div class="c-photo-card__overlay"></div>
+	</div>
 </a>
 {{/if}}
