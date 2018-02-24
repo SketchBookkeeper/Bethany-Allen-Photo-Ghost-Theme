@@ -278,6 +278,8 @@ button {
   .c-photo-card:hover .c-photo-card__title, .c-photo-card:focus .c-photo-card__title {
     opacity: 1;
     transform: translateY(0); }
+  .c-photo-card__inner {
+    height: 100%; }
   .c-photo-card__title {
     bottom: 20px;
     color: #FFFFFF;
@@ -301,6 +303,7 @@ button {
     font-weight: 300; }
   .c-photo-card__image {
     display: block;
+    height: 100%;
     object-fit: cover;
     width: 100%; }
 
@@ -326,6 +329,60 @@ button {
     top: 50%;
     transform: translate(-50%, -50%);
     transition: opacity 500ms; }
+
+.c-post-card {
+  display: block;
+  position: relative;
+  text-decoration: none; }
+  .c-post-card, .c-post-card__inner {
+    height: 100%; }
+  @media (min-width: 960px) {
+    .c-post-card__inner {
+      display: flex;
+      flex-direction: row-reverse; } }
+
+.c-post-card__media {
+  margin-bottom: 25px;
+  min-height: 300px;
+  position: relative; }
+  @media (min-width: 960px) {
+    .c-post-card__media {
+      margin: 0;
+      margin-left: 20px;
+      max-width: 60%;
+      min-width: 60%; } }
+
+.c-post-card__image {
+  display: block;
+  height: 200px;
+  object-fit: cover;
+  width: 100%; }
+
+.c-post-card__content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; }
+
+.c-post-card__title {
+  border-bottom: 2px solid #000000;
+  display: block;
+  margin: 0 auto 25px;
+  padding: 0 10px 10px;
+  text-align: center; }
+
+.c-post-card__excerpt {
+  font-size: 18px;
+  font-style: italic;
+  line-height: 1.4;
+  margin-bottom: 40px; }
+
+.c-post-card__link {
+  font-size: 18px;
+  margin-bottom: 40px;
+  text-align: center;
+  text-decoration: underline;
+  text-transform: uppercase; }
 
 .c-share {
   display: inline-block;
@@ -473,6 +530,20 @@ button {
   width: 100vw;
   z-index: 100; }
 
+@media (min-width: 640px) {
+  .l-blog {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto; } }
+
+@media (min-width: 1280px) {
+  .l-blog {
+    grid-template-rows: minmax(500px, 60vh) auto; } }
+
+.l-blog__item:first-child {
+  grid-column: 1 / span 2; }
+
 .l-collage {
   display: grid;
   grid-gap: 20px; }
@@ -525,6 +596,8 @@ button {
     max-width: 830px; }
 
 .wysiwyg-content p {
+  font-size: 18px;
+  line-height: 1.5;
   margin-bottom: 20px; }
 
 .wysiwyg-content h2 {
@@ -546,7 +619,7 @@ button {
   position: absolute;
   width: 1px; }
 
-.h-cover, .h-overlay::before, .c-photo-card--next::before, .h-screen-overlay {
+.h-cover, .c-post-card__image:first-child, .h-overlay::before, .c-photo-card--next::before, .h-screen-overlay {
   bottom: 0;
   height: 100%;
   left: 0;

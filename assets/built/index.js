@@ -2903,7 +2903,9 @@ document.addEventListener("DOMContentLoaded", function () {
 			noClickOverlay.show(); // Prevent any clicks while animation is running by overlaying body with transparent div
 
 			const image = lastElementClicked.querySelector('.js-photo-zoom__image');
+			const imageParent = image.parentElement;
 			const imageClone = image.cloneNode(false);
+
 			$(imageClone) .css({
 				position: 'absolute',
 				left: 0,
@@ -2912,7 +2914,8 @@ document.addEventListener("DOMContentLoaded", function () {
 				bottom: 0,
 				height: '100%',
 			});
-			lastElementClicked.appendChild(imageClone);
+
+			imageParent.appendChild(imageClone);
 			fillScreen(imageClone);
 
 			function fillScreen(el) {

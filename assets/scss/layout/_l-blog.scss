@@ -2,4 +2,19 @@
 // BLOG LAYOUT
 //--------------------------------------------------------------
 .l-blog {
+	@include mq($mq-medium) {
+		display: grid;
+		grid-gap: 20px;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: auto;
+	}
+	@include mq($mq-laptop-medium) {
+		grid-template-rows: minmax(500px, 60vh) auto;
+	}
+
+	&__item {
+		&:first-child {
+			grid-column: 1 / span 2;
+		}
+	}
 }

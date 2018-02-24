@@ -2,4 +2,85 @@
 // POST CARD
 //--------------------------------------------------------------
 .c-post-card {
+	display: block;
+	position: relative;
+	text-decoration: none;
+
+	&,
+	&__inner {
+		height: 100%;
+	}
+
+	&__inner {
+		@include mq($mq-full) {
+			display: flex;
+			flex-direction: row-reverse;
+		}
+	}
+}
+
+
+//-----------------------------------------
+// Media
+//-----------------------------------------
+.c-post-card {
+	&__media {
+		margin-bottom: 25px;
+		min-height: 300px;
+		position: relative;
+
+		@include mq($mq-full) {
+			margin: 0;
+			margin-left: 20px;
+			max-width: 60%;
+			min-width: 60%;
+		};
+	}
+
+	&__image {
+		display: block;
+		height: 200px;
+		object-fit: cover;
+		width: 100%;
+
+		&:first-child {
+			@extend .h-cover;
+		}
+	}
+}
+
+
+//-----------------------------------------
+// Content
+//-----------------------------------------
+.c-post-card {
+	&__content {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+	}
+
+	&__title {
+		border-bottom: 2px solid $color-theme-black;
+		display: block;
+		margin: 0 auto 25px;
+		padding: 0 10px 10px;
+		text-align: center;
+	}
+
+	&__excerpt {
+		font-size: 18px;
+		font-style: italic;
+		line-height: 1.4;
+		margin-bottom: 40px;
+	}
+
+	&__link {
+		font-size: 18px;
+		margin-bottom: 40px;
+		text-align: center;
+		text-decoration: underline;
+		text-transform: uppercase;
+	}
 }

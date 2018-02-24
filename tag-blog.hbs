@@ -2,9 +2,11 @@
 {{!-- The tag above means: insert everything in this file into the {body} of the default.hbs template --}}
 
 <div class="barba-container">
-	<div class="l-blog">
+	<div class="l-content-wrap l-blog">
 		{{#foreach posts}}
-			{{> "post-card"}}
+			<div class="l-blog__item">
+				{{> "post-card"}}
+			</div>
 		{{/foreach}}
 	</div>
 
