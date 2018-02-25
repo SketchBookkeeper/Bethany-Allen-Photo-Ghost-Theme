@@ -69,7 +69,7 @@ require = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({38:[function(require,module,exports) {
+})({40:[function(require,module,exports) {
 var bundleURL = null;
 function getBundleURLCached() {
   if (!bundleURL) {
@@ -132,7 +132,7 @@ function reloadCSS() {
 
 module.exports = reloadCSS;
 
-},{"./bundle-url":38}],40:[function(require,module,exports) {
+},{"./bundle-url":40}],41:[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
@@ -144,7 +144,7 @@ module.exports = reloadCSS;
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"_css_loader":5}],39:[function(require,module,exports) {
+},{"_css_loader":5}],42:[function(require,module,exports) {
 (function(window, factory) {
 	var lazySizes = factory(window, window.document);
 	window.lazySizes = lazySizes;
@@ -843,7 +843,7 @@ module.exports = reloadCSS;
 }
 ));
 
-},{}],43:[function(require,module,exports) {
+},{}],45:[function(require,module,exports) {
 
 // shim for using process in browser
 var process = module.exports = {};
@@ -1030,7 +1030,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],42:[function(require,module,exports) {
+},{}],44:[function(require,module,exports) {
 var process = require("process");
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
@@ -2742,7 +2742,7 @@ return /******/ (function(modules) { // webpackBootstrap
 });
 ;
 //# sourceMappingURL=barba.js.map
-},{"process":43}],41:[function(require,module,exports) {
+},{"process":45}],43:[function(require,module,exports) {
 var global = (1,eval)("this");
 /*
  2017 Julian Garnier
@@ -3053,7 +3053,7 @@ function getUrlEnding(url) {
 	return url;
 }
 
-},{"barba.js":42,"animejs":41}],4:[function(require,module,exports) {
+},{"barba.js":44,"animejs":43}],4:[function(require,module,exports) {
 const navTrigger = document.querySelector('.js-toggle-nav');
 const overlay = document.querySelector('.js-nav-overlay');
 const body = document.querySelector('body');
@@ -3081,7 +3081,7 @@ require('lazysizes');
 
 
 // Navigation
-},{"minireset.css":40,"../scss/index.scss":2,"lazysizes":39,"./barba":3,"./nav":4}],0:[function(require,module,exports) {
+},{"minireset.css":41,"../scss/index.scss":2,"lazysizes":42,"./barba":3,"./nav":4}],0:[function(require,module,exports) {
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
 function Module() {
@@ -3099,7 +3099,7 @@ function Module() {
 module.bundle.Module = Module;
 
 if (!module.bundle.parent && typeof WebSocket !== 'undefined') {
-  var ws = new WebSocket('ws://' + window.location.hostname + ':51212/');
+  var ws = new WebSocket('ws://' + window.location.hostname + ':53342/');
   ws.onmessage = function(event) {
     var data = JSON.parse(event.data);
 
