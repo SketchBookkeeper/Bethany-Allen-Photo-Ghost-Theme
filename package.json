@@ -18,7 +18,8 @@
     "posts_per_page": 9
   },
   "scripts": {
-    "watch": "parcel watch assets/js/index.js -d assets/built/"
+	"watch": "parcel watch assets/js/index.js -d assets/built/",
+	"build": "parcel build assets/js/index.js -d assets/built/"
   },
   "devDependencies": {
     "node-sass": "^4.7.2"
