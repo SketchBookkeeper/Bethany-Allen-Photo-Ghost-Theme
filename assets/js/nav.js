@@ -19,12 +19,15 @@ navTrigger.addEventListener('click', e => {
 	if (body.classList.contains('nav-is-open')) {
 		const showItems = anime({
 			targets: navItems,
-			translateX: 0,
+			translateX: {
+				value: 0,
+				elasticity: 150,
+			},
 			opacity: {
 				value: 1,
 				elasticity: 0,
 			},
-			elasticity: 100,
+			elasticity: 0,
 			delay: function (el, i, l) {
 				return i * 100;
 			}
@@ -36,8 +39,9 @@ navTrigger.addEventListener('click', e => {
 
 // close
 overlay.addEventListener('click', e => {
-	body.classList.toggle('nav-is-open') }
-);
+	body.classList.toggle('nav-is-open')
+	hide();
+});
 
 /**
 * functions
