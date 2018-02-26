@@ -3,11 +3,13 @@
 //--------------------------------------------------------------
 .c-nav-toggle {
 	align-items: flex-end;
+	background-color: $color-theme-white;
 	display: flex;
 	flex-direction: column;
-	height: 16px;
+	height: 18px;
 	justify-content: space-between;
-	width: 53px;
+	min-height: 18px;
+	width: 54px;
 
 	&:hover,
 	&:focus {
@@ -17,7 +19,11 @@
 	&__bar {
 		background-color: $color-theme-black;
 		height: 1px;
-		width: 40px;
+		width: 41px;
+
+		&:not(:last-child) {
+			margin-bottom: 5px;
+		}
 
 		&:first-child,
 		&:nth-child(3) {
@@ -29,7 +35,7 @@
 		}
 
 		&--long {
-			width: 53px;
+			width: 55px;
 		}
 	}
 }
@@ -44,7 +50,7 @@
 		}
 
 		&:first-child {
-			transform: translate(0, 6px) rotate(-45deg);
+			transform: translate(0, 7px) rotate(-45deg);
 		}
 
 		&:nth-child(2) {
@@ -53,7 +59,7 @@
 		}
 
 		&:nth-child(3) {
-			transform: translate(0, -6px) rotate(45deg);
+			transform: translate(0, -7px) rotate(45deg);
 		}
 	}
 }
