@@ -249,20 +249,14 @@ document.addEventListener("DOMContentLoaded", function () {
 		return slideTransition;
 	};
 
-	//------------------------------
-	// Views
-	//------------------------------
-	const post_view = Barba.BaseView.extend({
-		namespace: 'post_view',
-		onLeave: function() {
-
-		},
-		onLeaveCompleted: function() {
-
+	/**
+	* Google Analytics
+	*/
+	Barba.Dispatcher.on('initStateChange', function() {
+		if (typeof ga === 'function') {
+			ga('send', 'pageview', location.pathname);
 		}
 	});
-
-	post_view.init();
 });
 
 // Get URL ending
