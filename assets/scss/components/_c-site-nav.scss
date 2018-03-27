@@ -25,6 +25,7 @@
 		li {
 			margin-bottom: 15px;
 			opacity: 0;
+			perspective: 1000px;
 			position: relative;
 			transform: translateX(25%);
 		}
