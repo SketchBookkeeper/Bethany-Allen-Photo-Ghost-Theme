@@ -2,16 +2,23 @@ const Barba = require('barba.js');
 const anime = require('animejs');
 
 document.addEventListener("DOMContentLoaded", function () {
+	/**
+	* Google Analytics
+	*/
+	Barba.Dispatcher.on('initStateChange', function() {
+		console.log('hi');
+
+		if (typeof ga === 'function') {
+			ga('send', 'pageview', location.pathname);
+		}
+	});
+
 	let lastElementClicked;
 	Barba.Pjax.init();
 
 	// can now reference lastElementClicked
 	Barba.Dispatcher.on('linkClicked', function(el) {
 		lastElementClicked = el;
-	});
-
-	Barba.Dispatcher.on('initStateChange', function() {
-
 	});
 
 	//------------------------------
@@ -248,15 +255,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		return slideTransition;
 	};
-
-	/**
-	* Google Analytics
-	*/
-	Barba.Dispatcher.on('initStateChange', function() {
-		if (typeof ga === 'function') {
-			ga('send', 'pageview', location.pathname);
-		}
-	});
 });
 
 // Get URL ending
