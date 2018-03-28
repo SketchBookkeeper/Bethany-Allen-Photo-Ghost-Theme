@@ -30,7 +30,6 @@
     "autoprefixer": "^7.2.6",
     "barba.js": "^1.0.0",
     "css-mqpacker": "^6.0.2",
-    "jquery-backdetect": "^1.0.3",
     "lazysizes": "^4.0.2",
     "lozad": "^1.3.0",
     "minireset.css": "0.0.3",
