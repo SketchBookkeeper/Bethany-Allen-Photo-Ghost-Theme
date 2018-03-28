@@ -2,24 +2,27 @@ const Barba = require('barba.js');
 const anime = require('animejs');
 
 document.addEventListener("DOMContentLoaded", function () {
-	/**
-	* Google Analytics
-	*/
-	Barba.Dispatcher.on('initStateChange', function() {
-		console.log('hi');
 
+	let lastElementClicked;
+	Barba.Pjax.init();
+
+	Barba.Dispatcher.on('linkClicked', function(el) {
+		lastElementClicked = el; // can now reference lastElementClicked
+		$('#share-fb').off(); // remove any Facebook share event listeners from old page
+	});
+
+	Barba.Dispatcher.on('initStateChange', function() {
+		//  Google Analytics
 		if (typeof ga === 'function') {
 			ga('send', 'pageview', location.pathname);
 		}
 	});
 
-	let lastElementClicked;
-	Barba.Pjax.init();
-
-	// can now reference lastElementClicked
-	Barba.Dispatcher.on('linkClicked', function(el) {
-		lastElementClicked = el;
+	Barba.Dispatcher.on('transitionCompleted', function() {
+		setUpShareFB(); // Setup Facebook share button after new view has loaded
 	});
+
+	setUpShareFB(); // run when site is first loaded to check for any share FB button
 
 	//------------------------------
 	// Fade Transition
@@ -263,4 +266,19 @@ function getUrlEnding(url) {
 	url = url.substr(url.lastIndexOf('/') + 1);
 
 	return url;
+}
+
+// Setup Facebook share Button
+function setUpShareFB() {
+	const shareFB = $('#share-fb');
+
+	if (shareFB.length > 0) {
+		shareFB.on('click', () => {
+			FB.ui({
+				method: 'share',
+				display: 'popup',
+				href: window.location.href,
+			}, function(response){});
+		});
+	}
 }

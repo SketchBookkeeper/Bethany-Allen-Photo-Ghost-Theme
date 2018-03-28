@@ -26,16 +26,5 @@
 	</aside>
 
 	{{/post}}
-
-	{{!-- Get Post URL --}}
-	<script>
-		document.getElementById('share-fb').onclick = function() {
-		FB.ui({
-			method: 'share',
-			display: 'popup',
-			href: '{{url absolute="true"}}',
-		}, function(response){});
-		}
-	</script>
 </div>
 
