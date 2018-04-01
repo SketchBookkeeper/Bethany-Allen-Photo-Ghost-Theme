@@ -13,12 +13,28 @@
 .wysiwyg-content {
 	h1 {
 		@extend .h1;
+
+		margin-bottom: 25px;
 	}
 
 	h2 {
 		@extend .h2;
 
 		margin-bottom: $global-padding;
+	}
+}
+
+// Lists
+.wysiwyg-content {
+	ul,
+	ol {
+		li {
+			margin-bottom: 10px;
+		}
+	}
+
+	ul {
+		list-style: circle;
 	}
 }
 
