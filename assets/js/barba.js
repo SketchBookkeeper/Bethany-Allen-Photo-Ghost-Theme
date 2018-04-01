@@ -1,6 +1,8 @@
 const Barba = require('barba.js');
 const anime = require('animejs');
 
+import {closeNav, openNav, hideNavItems} from './nav';
+
 document.addEventListener("DOMContentLoaded", function () {
 
 	let lastElementClicked;
@@ -45,6 +47,8 @@ document.addEventListener("DOMContentLoaded", function () {
 			let deferred = Barba.Utils.deferred(); // Setup a promise, fadeIn will not run until promise is resolved
 
 			$('.js-loader').show();
+
+			closeNav(); // hide nav
 
 			const oldContainer = anime({
 				targets: '.js-transition-cover',
@@ -99,8 +103,6 @@ document.addEventListener("DOMContentLoaded", function () {
 					$('.js-loader').hide();
 				}
 			});
-
-
 		}
 	});
 

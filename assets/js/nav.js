@@ -8,11 +8,32 @@ const body = document.querySelector('body');
 
 //hide items on load
 window.addEventListener('load', () => {
-	hide();
+	hideNavItems();
 });
 
 // open
 navTrigger.addEventListener('click', e => {
+	openNav();
+});
+
+// close
+overlay.addEventListener('click', e => {
+	closeNav();
+});
+
+/**
+* functions
+*/
+export function hideNavItems() {
+	const hideItems = anime({
+		targets: navItems,
+		translateX: '25%',
+		opacity: 0,
+		delay: 500,
+	});
+}
+
+export function openNav() {
 	body.classList.toggle('nav-is-open');
 
 	// animate in nav items
@@ -33,24 +54,11 @@ navTrigger.addEventListener('click', e => {
 			}
 		});
 	} else {
-		hide();
+		hideNavItems();
 	}
-});
+}
 
-// close
-overlay.addEventListener('click', e => {
+export function closeNav() {
 	body.classList.toggle('nav-is-open')
-	hide();
-});
-
-/**
-* functions
-*/
-function hide() {
-	const hideItems = anime({
-		targets: navItems,
-		translateX: '25%',
-		opacity: 0,
-		delay: 500,
-	});
+	hideNavItems();
 }
