@@ -3,6 +3,8 @@ const anime = require('animejs');
 
 import {closeNav, openNav, hideNavItems} from './nav';
 
+const bodyTag = document.getElementById('body');
+
 document.addEventListener("DOMContentLoaded", function () {
 
 	let lastElementClicked;
@@ -48,7 +50,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 			$('.js-loader').show();
 
-			closeNav(); // hide nav
+			/**
+			* close nav if it's open
+			*/
+			if (body.classList.contains('nav-is-open')) {
+				closeNav();
+			}
 
 			const oldContainer = anime({
 				targets: '.js-transition-cover',
