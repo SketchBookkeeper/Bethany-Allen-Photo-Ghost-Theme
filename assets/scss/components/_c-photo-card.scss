@@ -24,17 +24,17 @@
 		bottom: 20px;
 		color: $color-theme-white;
 		font-family: $font-heading;
-		font-size: 24px;
+		font-size: 30px;
 		font-style: italic;
 		left: 25px;
-		opacity: 0;
 		position: absolute;
-		transform: translateY(70px);
 		transition: transform 300ms ease-out, opacity 250ms;
 		z-index: 2;
 
 		@include mq($mq-full) {
 			font-size: 34px;
+			opacity: 0;
+			transform: translateY(70px);
 		}
 	}
 
