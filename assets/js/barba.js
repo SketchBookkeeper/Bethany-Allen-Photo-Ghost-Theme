@@ -24,6 +24,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	Barba.Dispatcher.on('transitionCompleted', function() {
 		setUpShareFB(); // Setup Facebook share button after new view has loaded
+
+		// dispatch custom load event
+		const loadEvent = document.createEvent('Event');
+		loadEvent.initEvent('load', false, false);
+		window.dispatchEvent(loadEvent);
 	});
 
 	setUpShareFB(); // run when site is first loaded to check for any share FB button
