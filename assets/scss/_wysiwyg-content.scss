@@ -47,3 +47,23 @@
 		width: auto;
 	}
 }
+
+// Ghost Media Classes
+figure {
+	&.kg-width-wide {
+
+	}
+
+	&.kg-width-full {
+
+	}
+}
+
+// Gallery Component
+.kg-gallery-container {
+	.kg-gallery-row {
+		.kg-gallery-image {
+
+		}
+	}
+}

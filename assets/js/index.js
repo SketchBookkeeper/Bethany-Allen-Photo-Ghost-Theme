@@ -10,3 +10,6 @@ import './barba';
 
 // Navigation
 import './nav';
+
+// Contact From
+import './contact-form';

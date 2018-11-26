@@ -1,6 +1,7 @@
 {
   "name": "bethany-allen-photo",
   "description": "A simple and elegant photography theme",
+  "keywords": "ghost-theme",
   "version": "0.5.0",
   "engines": {
     "ghost": ">=1.0.0"

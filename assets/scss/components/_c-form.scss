@@ -1,0 +1,48 @@
+//--------------------------------------------------------------
+// FORM
+//--------------------------------------------------------------
+.c-form {
+	padding: 20px 0;
+
+	&__control {
+		margin-bottom: 25px;
+
+		input,
+		textarea {
+			border: 1px solid $color-grey-light;
+			color: $color-grey-dark;
+			font-size: 16px;
+			min-height: 30px;
+			padding: 5px 10px;
+		}
+
+		label {
+			color: $color-grey-dark;
+		}
+
+		label,
+		input,
+		textarea {
+			display: block;
+			width: 100%;
+		}
+
+		label {
+			margin-bottom: 5px;
+		}
+	}
+
+	&__submit {
+		appearance: none;
+		border: 2px solid $color-grey-medium;
+		font-size: 20px;
+		padding: 5px 20px;
+		transition: color 200ms ease, background-color 200ms ease;
+
+		&:hover,
+		&:focus {
+			background-color: $color-grey-medium;
+			color: $color-theme-white;
+		}
+	}
+}
